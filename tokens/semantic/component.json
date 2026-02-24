@@ -1,0 +1,72 @@
+{
+  "component": {
+    "button": {
+      "sm": {
+        "padding-x":     { "$value": "{space.3}", "$type": "dimension", "$description": "水平パディング (12px)" },
+        "padding-y":     { "$value": "{space.1}", "$type": "dimension", "$description": "垂直パディング (4px)" },
+        "border-radius": { "$value": "{radius.sm}", "$type": "dimension", "$description": "角丸 (4px)" },
+        "font-size":     { "$value": "{text.small.size}", "$type": "dimension", "$description": "フォントサイズ (14px)" },
+        "font-weight":   { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+        "height":        { "$value": "32px", "$type": "dimension" }
+      },
+      "md": {
+        "padding-x":     { "$value": "{space.4}", "$type": "dimension", "$description": "水平パディング (16px)" },
+        "padding-y":     { "$value": "{space.2}", "$type": "dimension", "$description": "垂直パディング (8px)" },
+        "border-radius": { "$value": "{radius.md}", "$type": "dimension", "$description": "角丸 (6px)" },
+        "font-size":     { "$value": "{text.base.size}", "$type": "dimension", "$description": "フォントサイズ (16px)" },
+        "font-weight":   { "$value": "{font.weight.medium}", "$type": "fontWeight" },
+        "height":        { "$value": "40px", "$type": "dimension" }
+      },
+      "lg": {
+        "padding-x":     { "$value": "{space.6}", "$type": "dimension", "$description": "水平パディング (24px)" },
+        "padding-y":     { "$value": "{space.3}", "$type": "dimension", "$description": "垂直パディング (12px)" },
+        "border-radius": { "$value": "{radius.md}", "$type": "dimension", "$description": "角丸 (6px)" },
+        "font-size":     { "$value": "{text.large.size}", "$type": "dimension", "$description": "フォントサイズ (18px)" },
+        "font-weight":   { "$value": "{font.weight.semibold}", "$type": "fontWeight" },
+        "height":        { "$value": "48px", "$type": "dimension" }
+      }
+    },
+
+    "input": {
+      "sm": {
+        "padding-x":     { "$value": "{space.3}", "$type": "dimension", "$description": "水平パディング (12px)" },
+        "padding-y":     { "$value": "{space.1}", "$type": "dimension", "$description": "垂直パディング (4px)" },
+        "border-radius": { "$value": "{radius.sm}", "$type": "dimension", "$description": "角丸 (4px)" },
+        "font-size":     { "$value": "{text.small.size}", "$type": "dimension", "$description": "フォントサイズ (14px)" },
+        "height":        { "$value": "32px", "$type": "dimension" }
+      },
+      "md": {
+        "padding-x":     { "$value": "{space.3}", "$type": "dimension", "$description": "水平パディング (12px)" },
+        "padding-y":     { "$value": "{space.2}", "$type": "dimension", "$description": "垂直パディング (8px)" },
+        "border-radius": { "$value": "{radius.sm}", "$type": "dimension", "$description": "角丸 (4px)" },
+        "font-size":     { "$value": "{text.base.size}", "$type": "dimension", "$description": "フォントサイズ (16px)" },
+        "height":        { "$value": "40px", "$type": "dimension" }
+      },
+      "lg": {
+        "padding-x":     { "$value": "{space.4}", "$type": "dimension", "$description": "水平パディング (16px)" },
+        "padding-y":     { "$value": "{space.3}", "$type": "dimension", "$description": "垂直パディング (12px)" },
+        "border-radius": { "$value": "{radius.sm}", "$type": "dimension", "$description": "角丸 (4px)" },
+        "font-size":     { "$value": "{text.large.size}", "$type": "dimension", "$description": "フォントサイズ (18px)" },
+        "height":        { "$value": "48px", "$type": "dimension" }
+      }
+    },
+
+    "card": {
+      "sm": {
+        "padding":       { "$value": "{space.4}", "$type": "dimension", "$description": "内部パディング (16px)" },
+        "border-radius": { "$value": "{radius.md}", "$type": "dimension", "$description": "角丸 (6px)" },
+        "shadow":        { "$value": "{shadow.sm}", "$type": "shadow" }
+      },
+      "md": {
+        "padding":       { "$value": "{space.6}", "$type": "dimension", "$description": "内部パディング (24px)" },
+        "border-radius": { "$value": "{radius.lg}", "$type": "dimension", "$description": "角丸 (8px)" },
+        "shadow":        { "$value": "{shadow.md}", "$type": "shadow" }
+      },
+      "lg": {
+        "padding":       { "$value": "{space.8}", "$type": "dimension", "$description": "内部パディング (32px)" },
+        "border-radius": { "$value": "{radius.xl}", "$type": "dimension", "$description": "角丸 (12px)" },
+        "shadow":        { "$value": "{shadow.lg}", "$type": "shadow" }
+      }
+    }
+  }
+}

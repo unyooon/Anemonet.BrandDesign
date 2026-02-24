@@ -1,0 +1,28 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme="dark"] {
+  --anm-color-text-heading: #eee9fa; /** 見出し — ライトラベンダーホワイト */
+  --anm-color-text-body: #d0c9e8; /** 本文テキスト (ダーク) */
+  --anm-color-text-sub: #9a90b5; /** 補助テキスト / キャプション (ダーク) */
+  --anm-color-text-disabled: #5e5775; /** 無効状態テキスト (ダーク) */
+  --anm-color-bg-page: #110e1c; /** ページ背景 — 深い紫黒 */
+  --anm-color-bg-card: #1c1830; /** カード / サーフェス (ダーク) */
+  --anm-color-bg-section: #241f38; /** セクション区切り背景 (ダーク) */
+  --anm-color-border-default: #3c3658; /** 標準ボーダー (ダーク) */
+  --anm-color-border-subtle: #2e2947; /** 薄いボーダー / 区切り線 (ダーク) */
+  --anm-color-action-primary-default: #9472e2; /** CTA / リンク (ダークモード) */
+  --anm-color-action-primary-hover: #b9a0ee; /** ホバー (ダークモード) */
+  --anm-color-action-primary-press: #7650d3; /** プレス (ダークモード) */
+  --anm-color-action-primary-subtle: #1a0e42; /** ゴースト背景 (ダークモード) */
+  --anm-color-action-primary-tint: #2d1a6e; /** ソフトアクセント背景 (ダークモード) */
+  --anm-color-status-error: #dc2626;
+  --anm-color-status-warning: #d97706;
+  --anm-color-status-success: #16a34a;
+  --anm-color-status-info: #0891b2;
+  --anm-color-status-error-bg: #450a0a;
+  --anm-color-status-warning-bg: #451a03;
+  --anm-color-status-success-bg: #052e16;
+  --anm-color-status-info-bg: #083344;
+}

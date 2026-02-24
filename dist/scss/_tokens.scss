@@ -1,0 +1,170 @@
+
+// Do not edit directly, this file was auto-generated.
+
+$anm-color-primary-50: #f5f2fd; // 最も明るい — 選択状態背景
+$anm-color-primary-100: #ebe5fb; // Tint 3 — 強調ハイライト背景
+$anm-color-primary-200: #d5c8f7; // Tint 2 — ソフトアクセント
+$anm-color-primary-300: #b9a0ee; // Tint 1 — ホバーソフト
+$anm-color-primary-400: #9472e2; // ダークモードリンク
+$anm-color-primary-500: #7650d3; // ダークモードCTA
+$anm-color-primary-600: #5c38c0; // Primary Default — CTA / リンク / アクティブ状態
+$anm-color-primary-700: #4b2da5; // ホバー
+$anm-color-primary-800: #3c238a; // アクティブ / プレス
+$anm-color-primary-900: #2d1a6e; // 深いアクセント
+$anm-color-primary-950: #1a0e42; // 最暗
+$anm-color-neutral-50: #f8f7fc; // 最も明るいグレー (紫みがかり)
+$anm-color-neutral-100: #f0eef8;
+$anm-color-neutral-200: #e2dff1;
+$anm-color-neutral-300: #c9c4df;
+$anm-color-neutral-400: #a9a2c7;
+$anm-color-neutral-500: #8a82ab;
+$anm-color-neutral-600: #6c648e;
+$anm-color-neutral-700: #524d72;
+$anm-color-neutral-800: #3a3557;
+$anm-color-neutral-900: #242040;
+$anm-color-neutral-950: #141029; // 最暗グレー
+$anm-color-error-main: #dc2626; // エラー主色 (H≈0, 赤系)
+$anm-color-error-light-bg: #fef2f2; // エラー背景 (ライトモード)
+$anm-color-error-dark-bg: #450a0a; // エラー背景 (ダークモード)
+$anm-color-warning-main: #d97706; // 警告主色 (H≈38, 橙系)
+$anm-color-warning-light-bg: #fffbeb; // 警告背景 (ライトモード)
+$anm-color-warning-dark-bg: #451a03; // 警告背景 (ダークモード)
+$anm-color-success-main: #16a34a; // 成功主色 (H≈145, 緑系)
+$anm-color-success-light-bg: #f0fdf4; // 成功背景 (ライトモード)
+$anm-color-success-dark-bg: #052e16; // 成功背景 (ダークモード)
+$anm-color-info-main: #0891b2; // 情報主色 (H≈198, 青緑系 — 紫との差を確保)
+$anm-color-info-light-bg: #ecfeff; // 情報背景 (ライトモード)
+$anm-color-info-dark-bg: #083344; // 情報背景 (ダークモード)
+$anm-color-accent-main: #c0388a; // アネモネピンク — ブランドアクセント (花のイメージ)
+$anm-color-accent-tint: #f5d0e8; // アクセントティント — ソフト背景
+$anm-color-text-heading: #1c1529; // 見出し — 深い紫黒 (WCAG AA対応)
+$anm-color-text-body: #3e3455; // 本文テキスト
+$anm-color-text-sub: #7a6f93; // 補助テキスト / キャプション
+$anm-color-text-disabled: #b8b2cc; // 無効状態テキスト
+$anm-color-bg-page: #f8f7fd; // ページ背景 — 極薄ラベンダー
+$anm-color-bg-card: #ffffff; // カード / サーフェス
+$anm-color-bg-section: #f0ecf8; // セクション区切り背景
+$anm-color-border-default: #e2dcf0; // 標準ボーダー
+$anm-color-border-subtle: #ede9f5; // 薄いボーダー / 区切り線
+$anm-color-action-primary-default: #5c38c0; // CTA / リンク / アクティブ
+$anm-color-action-primary-hover: #4b2da5; // ホバー
+$anm-color-action-primary-press: #3c238a; // プレス / アクティブ
+$anm-color-action-primary-subtle: #f5f2fd; // ゴースト背景
+$anm-color-action-primary-tint: #ebe5fb; // ソフトアクセント背景
+$anm-color-status-error: #dc2626;
+$anm-color-status-warning: #d97706;
+$anm-color-status-success: #16a34a;
+$anm-color-status-info: #0891b2;
+$anm-color-status-error-bg: #fef2f2;
+$anm-color-status-warning-bg: #fffbeb;
+$anm-color-status-success-bg: #f0fdf4;
+$anm-color-status-info-bg: #ecfeff;
+$anm-radius-none: 0px; // 角丸なし
+$anm-radius-sm: 4px; // 小 — 入力フィールド、バッジ等
+$anm-radius-md: 6px; // 中 — ボタン標準
+$anm-radius-lg: 8px; // 大 — カード
+$anm-radius-xl: 12px; // 特大 — モーダル、パネル
+$anm-radius-full: 9999px; // 完全円形 — ピル、アバター
+$anm-shadow-none: none; // シャドウなし
+$anm-shadow-sm: 0 1px 3px 0 rgba(28, 21, 41, 0.08), 0 1px 2px -1px rgba(28, 21, 41, 0.06); // 小 — カード境界、入力フォーカス (紫みシャドウ)
+$anm-shadow-md: 0 4px 6px -1px rgba(28, 21, 41, 0.10), 0 2px 4px -2px rgba(28, 21, 41, 0.08); // 中 — ドロップダウン、ポップオーバー (紫みシャドウ)
+$anm-shadow-lg: 0 10px 15px -3px rgba(28, 21, 41, 0.12), 0 4px 6px -4px rgba(28, 21, 41, 0.08); // 大 — モーダル、トースト (紫みシャドウ)
+$anm-space-1: 4px; // 4px — 最小間隔
+$anm-space-2: 8px; // 8px
+$anm-space-3: 12px; // 12px
+$anm-space-4: 16px; // 16px — ベース単位
+$anm-space-5: 20px; // 20px
+$anm-space-6: 24px; // 24px
+$anm-space-8: 32px; // 32px
+$anm-space-10: 40px; // 40px
+$anm-space-12: 48px; // 48px
+$anm-space-16: 64px; // 64px — 最大標準間隔
+$anm-transition-duration-fast: 75ms; // 最速 — マイクロインタラクション (ホバー表示切替等)
+$anm-transition-duration-normal: 150ms; // 標準 — ボタン、リンク、入力フォーカス
+$anm-transition-duration-slow: 300ms; // やや遅 — パネル開閉、フェード
+$anm-transition-duration-slower: 500ms; // 遅 — ページトランジション
+$anm-transition-duration-slowest: 700ms; // 最遅 — スプラッシュ、ブランド演出
+$anm-transition-easing-default: cubic-bezier(0.4, 0, 0.2, 1); // 標準 ease-in-out
+$anm-transition-easing-in: cubic-bezier(0.4, 0, 1, 1); // 要素の退場
+$anm-transition-easing-out: cubic-bezier(0, 0, 0.2, 1); // 要素の登場
+$anm-transition-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1); // バネ感 — アクティブフィードバック
+$anm-font-family-sans: 'Inter', 'Noto Sans JP', system-ui, sans-serif; // UI テキスト — Latin: Inter / Japanese: Noto Sans JP
+$anm-font-family-mono: 'JetBrains Mono', 'Noto Sans Mono CJK JP', monospace; // コード — リガチャ OFF で使用
+$anm-font-weight-regular: 400;
+$anm-font-weight-medium: 500;
+$anm-font-weight-semibold: 600;
+$anm-font-weight-bold: 700;
+$anm-text-display-size: 36px; // Display — 最大見出し
+$anm-text-display-weight: 700;
+$anm-text-display-line-height: 1.2;
+$anm-text-display-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-h1-size: 30px; // H1 — ページタイトル
+$anm-text-h1-weight: 700;
+$anm-text-h1-line-height: 1.25;
+$anm-text-h1-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-h2-size: 24px; // H2 — セクション見出し
+$anm-text-h2-weight: 600;
+$anm-text-h2-line-height: 1.3;
+$anm-text-h2-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-h3-size: 20px; // H3 — サブセクション見出し
+$anm-text-h3-weight: 600;
+$anm-text-h3-line-height: 1.35;
+$anm-text-h3-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-large-size: 18px; // Large — リード文、強調本文
+$anm-text-large-weight: 400;
+$anm-text-large-line-height: 1.5;
+$anm-text-large-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-base-size: 16px; // Base — 標準本文 (1rem)
+$anm-text-base-weight: 400;
+$anm-text-base-line-height: 1.6;
+$anm-text-base-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-small-size: 14px; // Small — 補助テキスト、ラベル
+$anm-text-small-weight: 400;
+$anm-text-small-line-height: 1.5;
+$anm-text-small-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-text-xxsmall-size: 12px; // XXSmall — バッジ、タイムスタンプ
+$anm-text-xxsmall-weight: 400;
+$anm-text-xxsmall-line-height: 1.45;
+$anm-text-xxsmall-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+$anm-component-button-sm-padding-x: 12px; // 水平パディング (12px)
+$anm-component-button-sm-padding-y: 4px; // 垂直パディング (4px)
+$anm-component-button-sm-border-radius: 4px; // 角丸 (4px)
+$anm-component-button-sm-font-size: 14px; // フォントサイズ (14px)
+$anm-component-button-sm-font-weight: 500;
+$anm-component-button-sm-height: 32px;
+$anm-component-button-md-padding-x: 16px; // 水平パディング (16px)
+$anm-component-button-md-padding-y: 8px; // 垂直パディング (8px)
+$anm-component-button-md-border-radius: 6px; // 角丸 (6px)
+$anm-component-button-md-font-size: 16px; // フォントサイズ (16px)
+$anm-component-button-md-font-weight: 500;
+$anm-component-button-md-height: 40px;
+$anm-component-button-lg-padding-x: 24px; // 水平パディング (24px)
+$anm-component-button-lg-padding-y: 12px; // 垂直パディング (12px)
+$anm-component-button-lg-border-radius: 6px; // 角丸 (6px)
+$anm-component-button-lg-font-size: 18px; // フォントサイズ (18px)
+$anm-component-button-lg-font-weight: 600;
+$anm-component-button-lg-height: 48px;
+$anm-component-input-sm-padding-x: 12px; // 水平パディング (12px)
+$anm-component-input-sm-padding-y: 4px; // 垂直パディング (4px)
+$anm-component-input-sm-border-radius: 4px; // 角丸 (4px)
+$anm-component-input-sm-font-size: 14px; // フォントサイズ (14px)
+$anm-component-input-sm-height: 32px;
+$anm-component-input-md-padding-x: 12px; // 水平パディング (12px)
+$anm-component-input-md-padding-y: 8px; // 垂直パディング (8px)
+$anm-component-input-md-border-radius: 4px; // 角丸 (4px)
+$anm-component-input-md-font-size: 16px; // フォントサイズ (16px)
+$anm-component-input-md-height: 40px;
+$anm-component-input-lg-padding-x: 16px; // 水平パディング (16px)
+$anm-component-input-lg-padding-y: 12px; // 垂直パディング (12px)
+$anm-component-input-lg-border-radius: 4px; // 角丸 (4px)
+$anm-component-input-lg-font-size: 18px; // フォントサイズ (18px)
+$anm-component-input-lg-height: 48px;
+$anm-component-card-sm-padding: 16px; // 内部パディング (16px)
+$anm-component-card-sm-border-radius: 6px; // 角丸 (6px)
+$anm-component-card-sm-shadow: 0 1px 3px 0 rgba(28, 21, 41, 0.08), 0 1px 2px -1px rgba(28, 21, 41, 0.06);
+$anm-component-card-md-padding: 24px; // 内部パディング (24px)
+$anm-component-card-md-border-radius: 8px; // 角丸 (8px)
+$anm-component-card-md-shadow: 0 4px 6px -1px rgba(28, 21, 41, 0.10), 0 2px 4px -2px rgba(28, 21, 41, 0.08);
+$anm-component-card-lg-padding: 32px; // 内部パディング (32px)
+$anm-component-card-lg-border-radius: 12px; // 角丸 (12px)
+$anm-component-card-lg-shadow: 0 10px 15px -3px rgba(28, 21, 41, 0.12), 0 4px 6px -4px rgba(28, 21, 41, 0.08);

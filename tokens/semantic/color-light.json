@@ -1,0 +1,36 @@
+{
+  "color": {
+    "text": {
+      "heading":  { "$value": "#1C1529", "$type": "color", "$description": "見出し — 深い紫黒 (WCAG AA対応)" },
+      "body":     { "$value": "#3E3455", "$type": "color", "$description": "本文テキスト" },
+      "sub":      { "$value": "#7A6F93", "$type": "color", "$description": "補助テキスト / キャプション" },
+      "disabled": { "$value": "#B8B2CC", "$type": "color", "$description": "無効状態テキスト" }
+    },
+    "bg": {
+      "page":    { "$value": "#F8F7FD", "$type": "color", "$description": "ページ背景 — 極薄ラベンダー" },
+      "card":    { "$value": "#FFFFFF", "$type": "color", "$description": "カード / サーフェス" },
+      "section": { "$value": "#F0ECF8", "$type": "color", "$description": "セクション区切り背景" }
+    },
+    "border": {
+      "default": { "$value": "#E2DCF0", "$type": "color", "$description": "標準ボーダー" },
+      "subtle":  { "$value": "#EDE9F5", "$type": "color", "$description": "薄いボーダー / 区切り線" }
+    },
+    "action": {
+      "primary-default": { "$value": "{color.primary.600}", "$type": "color", "$description": "CTA / リンク / アクティブ" },
+      "primary-hover":   { "$value": "{color.primary.700}", "$type": "color", "$description": "ホバー" },
+      "primary-press":   { "$value": "{color.primary.800}", "$type": "color", "$description": "プレス / アクティブ" },
+      "primary-subtle":  { "$value": "{color.primary.50}",  "$type": "color", "$description": "ゴースト背景" },
+      "primary-tint":    { "$value": "{color.primary.100}", "$type": "color", "$description": "ソフトアクセント背景" }
+    },
+    "status": {
+      "error":   { "$value": "{color.error.main}",   "$type": "color" },
+      "warning": { "$value": "{color.warning.main}", "$type": "color" },
+      "success": { "$value": "{color.success.main}", "$type": "color" },
+      "info":    { "$value": "{color.info.main}",    "$type": "color" },
+      "error-bg":   { "$value": "{color.error.light-bg}",   "$type": "color" },
+      "warning-bg": { "$value": "{color.warning.light-bg}", "$type": "color" },
+      "success-bg": { "$value": "{color.success.light-bg}", "$type": "color" },
+      "info-bg":    { "$value": "{color.info.light-bg}",    "$type": "color" }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "@anemonet/brand-design",
+  "version": "1.0.0",
+  "description": "Anemonet Brand Design System — Design tokens and guidelines",
+  "type": "module",
+  "main": "./dist/js/tokens.cjs",
+  "module": "./dist/js/tokens.js",
+  "types": "./dist/js/tokens.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/js/tokens.js",
+      "require": "./dist/js/tokens.cjs",
+      "types": "./dist/js/tokens.d.ts"
+    },
+    "./css": "./dist/css/tokens.css",
+    "./css/dark": "./dist/css/tokens-dark.css",
+    "./utilities": "./dist/css/utilities.css",
+    "./scss": "./dist/scss/_tokens.scss",
+    "./json": "./dist/json/tokens.json",
+    "./addons/tailwind": "./dist/addons/tailwind-bridge.css",
+    "./addons/nuxtui": "./dist/addons/nuxtui-bridge.css"
+  },
+  "files": [
+    "dist/",
+    "assets/fonts/",
+    "assets/logos/"
+  ],
+  "scripts": {
+    "build": "node scripts/build-tokens.js",
+    "build:addons": "node scripts/generate-addons.js",
+    "build:all": "npm run build && npm run build:addons",
+    "dev:docs": "vite --config docs/vite.config.ts",
+    "build:docs": "vite build --config docs/vite.config.ts",
+    "preview:docs": "vite preview --config docs/vite.config.ts"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.0",
+    "vite": "^6.1.0"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "anemonet",
+    "brand"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}

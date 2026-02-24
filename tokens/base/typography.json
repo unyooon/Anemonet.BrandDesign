@@ -1,0 +1,22 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "$value": "'Inter', 'Noto Sans JP', system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$description": "UI テキスト — Latin: Inter / Japanese: Noto Sans JP"
+      },
+      "mono": {
+        "$value": "'JetBrains Mono', 'Noto Sans Mono CJK JP', monospace",
+        "$type": "fontFamily",
+        "$description": "コード — リガチャ OFF で使用"
+      }
+    },
+    "weight": {
+      "regular":  { "$value": 400, "$type": "fontWeight" },
+      "medium":   { "$value": 500, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" },
+      "bold":     { "$value": 700, "$type": "fontWeight" }
+    }
+  }
+}

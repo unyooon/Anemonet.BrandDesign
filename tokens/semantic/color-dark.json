@@ -1,0 +1,36 @@
+{
+  "color": {
+    "text": {
+      "heading":  { "$value": "#EEE9FA", "$type": "color", "$description": "見出し — ライトラベンダーホワイト" },
+      "body":     { "$value": "#D0C9E8", "$type": "color", "$description": "本文テキスト (ダーク)" },
+      "sub":      { "$value": "#9A90B5", "$type": "color", "$description": "補助テキスト / キャプション (ダーク)" },
+      "disabled": { "$value": "#5E5775", "$type": "color", "$description": "無効状態テキスト (ダーク)" }
+    },
+    "bg": {
+      "page":    { "$value": "#110E1C", "$type": "color", "$description": "ページ背景 — 深い紫黒" },
+      "card":    { "$value": "#1C1830", "$type": "color", "$description": "カード / サーフェス (ダーク)" },
+      "section": { "$value": "#241F38", "$type": "color", "$description": "セクション区切り背景 (ダーク)" }
+    },
+    "border": {
+      "default": { "$value": "#3C3658", "$type": "color", "$description": "標準ボーダー (ダーク)" },
+      "subtle":  { "$value": "#2E2947", "$type": "color", "$description": "薄いボーダー / 区切り線 (ダーク)" }
+    },
+    "action": {
+      "primary-default": { "$value": "{color.primary.400}", "$type": "color", "$description": "CTA / リンク (ダークモード)" },
+      "primary-hover":   { "$value": "{color.primary.300}", "$type": "color", "$description": "ホバー (ダークモード)" },
+      "primary-press":   { "$value": "{color.primary.500}", "$type": "color", "$description": "プレス (ダークモード)" },
+      "primary-subtle":  { "$value": "{color.primary.950}", "$type": "color", "$description": "ゴースト背景 (ダークモード)" },
+      "primary-tint":    { "$value": "{color.primary.900}", "$type": "color", "$description": "ソフトアクセント背景 (ダークモード)" }
+    },
+    "status": {
+      "error":   { "$value": "{color.error.main}",   "$type": "color" },
+      "warning": { "$value": "{color.warning.main}", "$type": "color" },
+      "success": { "$value": "{color.success.main}", "$type": "color" },
+      "info":    { "$value": "{color.info.main}",    "$type": "color" },
+      "error-bg":   { "$value": "{color.error.dark-bg}",   "$type": "color" },
+      "warning-bg": { "$value": "{color.warning.dark-bg}", "$type": "color" },
+      "success-bg": { "$value": "{color.success.dark-bg}", "$type": "color" },
+      "info-bg":    { "$value": "{color.info.dark-bg}",    "$type": "color" }
+    }
+  }
+}

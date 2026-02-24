@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anemonet Brand Design System</title>
+  <meta name="description" content="Anemonet ブランドデザインシステム — デザイントークン、タイポグラフィ、カラー、コンポーネントのガイドライン" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Inline: apply theme immediately to prevent flash -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem('anm-theme');
+      var theme = saved === 'dark' || saved === 'light'
+        ? saved
+        : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="./styles/docs.css" />
+  <script type="module" src="./scripts/docs.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       Header
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="#" class="site-logo" aria-label="Anemonet Brand Design System トップへ">
+        <span class="logo-name">Anemonet</span>
+        <span class="logo-subtitle">Brand Design System</span>
+      </a>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="ダークモードに切替"
+        data-theme-current="light"
+      >
+        <!-- Sun icon -->
+        <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       Main
+       ============================================================ -->
+  <main class="site-main" id="main-content">
+    <div class="container">
+
+      <!-- ======================================================
+           Brand Story
+           ====================================================== -->
+      <section class="hero-section" aria-labelledby="brand-story-heading">
+        <p class="hero-eyebrow">Brand Identity</p>
+        <h1 id="brand-story-heading" class="hero-title">Anemonet</h1>
+        <p class="hero-story">
+          アネモネは、早春にいち早く咲く。まだ冬の名残が残る大地に、鮮やかな色彩で存在を示す。
+          Anemonet は、その姿に倣う。複雑さの中に明確な美しさを見出し、精密さの中に有機的な温かみを宿す。
+          システム開発という論理の世界に、花が咲くような体験をもたらすために。
+        </p>
+        <div class="hero-tone" role="note">
+          <span class="hero-tone-dot" aria-hidden="true"></span>
+          Elegant Modern &mdash; &ldquo;Organic Precision&rdquo;（有機的精密さ）
+        </div>
+      </section>
+
+      <!-- ======================================================
+           Colors
+           ====================================================== -->
+      <section class="section-card" id="colors" aria-labelledby="colors-heading">
+        <h2 id="colors-heading" class="section-title">Colors</h2>
+
+        <!-- Primary -->
+        <h3 class="subsection-title">Primary</h3>
+        <div class="swatch-grid" role="list">
+          <div class="swatch-card" role="listitem" data-copy="#f5f2fd" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-50);" aria-label="Primary 50"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">50</span>
+              <span class="swatch-hex">#f5f2fd</span>
+              <span class="swatch-var">--anm-color-primary-50</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#ebe5fb" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-100);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">100</span>
+              <span class="swatch-hex">#ebe5fb</span>
+              <span class="swatch-var">--anm-color-primary-100</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#d5c8f7" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-200);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">200</span>
+              <span class="swatch-hex">#d5c8f7</span>
+              <span class="swatch-var">--anm-color-primary-200</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#b9a0ee" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-300);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">300</span>
+              <span class="swatch-hex">#b9a0ee</span>
+              <span class="swatch-var">--anm-color-primary-300</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#9472e2" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-400);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">400</span>
+              <span class="swatch-hex">#9472e2</span>
+              <span class="swatch-var">--anm-color-primary-400</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#7650d3" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-500);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">500</span>
+              <span class="swatch-hex">#7650d3</span>
+              <span class="swatch-var">--anm-color-primary-500</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#5c38c0" title="クリックでコピー" style="outline: 2px solid var(--anm-color-primary-600); outline-offset: 2px; border-radius: var(--anm-radius-lg);">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-600);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label" style="color: var(--anm-color-action-primary-default);">600 ★ Default</span>
+              <span class="swatch-hex">#5c38c0</span>
+              <span class="swatch-var">--anm-color-primary-600</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#4b2da5" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-700);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">700</span>
+              <span class="swatch-hex">#4b2da5</span>
+              <span class="swatch-var">--anm-color-primary-700</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#3c238a" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-800);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">800</span>
+              <span class="swatch-hex">#3c238a</span>
+              <span class="swatch-var">--anm-color-primary-800</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#2d1a6e" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-900);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">900</span>
+              <span class="swatch-hex">#2d1a6e</span>
+              <span class="swatch-var">--anm-color-primary-900</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#1a0e42" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-primary-950);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">950</span>
+              <span class="swatch-hex">#1a0e42</span>
+              <span class="swatch-var">--anm-color-primary-950</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neutral -->
+        <h3 class="subsection-title">Neutral</h3>
+        <div class="swatch-grid" role="list">
+          <div class="swatch-card" role="listitem" data-copy="#f8f7fc" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-50); border-bottom: 1px solid var(--anm-color-border-subtle);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">50</span>
+              <span class="swatch-hex">#f8f7fc</span>
+              <span class="swatch-var">--anm-color-neutral-50</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#f0eef8" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-100);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">100</span>
+              <span class="swatch-hex">#f0eef8</span>
+              <span class="swatch-var">--anm-color-neutral-100</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#e2dff1" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-200);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">200</span>
+              <span class="swatch-hex">#e2dff1</span>
+              <span class="swatch-var">--anm-color-neutral-200</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#c9c4df" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-300);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">300</span>
+              <span class="swatch-hex">#c9c4df</span>
+              <span class="swatch-var">--anm-color-neutral-300</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#a9a2c7" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-400);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">400</span>
+              <span class="swatch-hex">#a9a2c7</span>
+              <span class="swatch-var">--anm-color-neutral-400</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#8a82ab" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-500);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">500</span>
+              <span class="swatch-hex">#8a82ab</span>
+              <span class="swatch-var">--anm-color-neutral-500</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#6c648e" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-600);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">600</span>
+              <span class="swatch-hex">#6c648e</span>
+              <span class="swatch-var">--anm-color-neutral-600</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#524d72" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-700);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">700</span>
+              <span class="swatch-hex">#524d72</span>
+              <span class="swatch-var">--anm-color-neutral-700</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#3a3557" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-800);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">800</span>
+              <span class="swatch-hex">#3a3557</span>
+              <span class="swatch-var">--anm-color-neutral-800</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#242040" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-900);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">900</span>
+              <span class="swatch-hex">#242040</span>
+              <span class="swatch-var">--anm-color-neutral-900</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#141029" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-neutral-950);"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">950</span>
+              <span class="swatch-hex">#141029</span>
+              <span class="swatch-var">--anm-color-neutral-950</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <h3 class="subsection-title">Status Colors</h3>
+        <div class="status-grid" role="list">
+          <!-- Error -->
+          <div class="status-swatch" role="listitem">
+            <div class="status-swatch-main" style="background-color: var(--anm-color-error-main);">
+              <span class="status-swatch-main-label">Error</span>
+            </div>
+            <div class="status-swatch-bg" style="background-color: var(--anm-color-error-light-bg);"></div>
+            <div class="status-swatch-info">
+              <span class="status-label">Error</span>
+              <span class="swatch-hex">#dc2626</span>
+              <span class="swatch-var">--anm-color-error-main</span>
+            </div>
+          </div>
+          <!-- Warning -->
+          <div class="status-swatch" role="listitem">
+            <div class="status-swatch-main" style="background-color: var(--anm-color-warning-main);">
+              <span class="status-swatch-main-label">Warning</span>
+            </div>
+            <div class="status-swatch-bg" style="background-color: var(--anm-color-warning-light-bg);"></div>
+            <div class="status-swatch-info">
+              <span class="status-label">Warning</span>
+              <span class="swatch-hex">#d97706</span>
+              <span class="swatch-var">--anm-color-warning-main</span>
+            </div>
+          </div>
+          <!-- Success -->
+          <div class="status-swatch" role="listitem">
+            <div class="status-swatch-main" style="background-color: var(--anm-color-success-main);">
+              <span class="status-swatch-main-label">Success</span>
+            </div>
+            <div class="status-swatch-bg" style="background-color: var(--anm-color-success-light-bg);"></div>
+            <div class="status-swatch-info">
+              <span class="status-label">Success</span>
+              <span class="swatch-hex">#16a34a</span>
+              <span class="swatch-var">--anm-color-success-main</span>
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="status-swatch" role="listitem">
+            <div class="status-swatch-main" style="background-color: var(--anm-color-info-main);">
+              <span class="status-swatch-main-label">Info</span>
+            </div>
+            <div class="status-swatch-bg" style="background-color: var(--anm-color-info-light-bg);"></div>
+            <div class="status-swatch-info">
+              <span class="status-label">Info</span>
+              <span class="swatch-hex">#0891b2</span>
+              <span class="swatch-var">--anm-color-info-main</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent -->
+        <h3 class="subsection-title">Accent — Anemone Pink</h3>
+        <div class="swatch-grid swatch-grid-2" role="list" style="max-width: 320px;">
+          <div class="swatch-card" role="listitem" data-copy="#c0388a" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-accent-main); height: 80px;"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">Main</span>
+              <span class="swatch-hex">#c0388a</span>
+              <span class="swatch-var">--anm-color-accent-main</span>
+            </div>
+          </div>
+          <div class="swatch-card" role="listitem" data-copy="#f5d0e8" title="クリックでコピー">
+            <div class="swatch-color" style="background-color: var(--anm-color-accent-tint); height: 80px;"></div>
+            <div class="swatch-info">
+              <span class="swatch-label">Tint</span>
+              <span class="swatch-hex">#f5d0e8</span>
+              <span class="swatch-var">--anm-color-accent-tint</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semantic -->
+        <h3 class="subsection-title">Semantic Colors</h3>
+        <div class="semantic-grid" role="list">
+          <!-- Text -->
+          <div>
+            <p class="semantic-group-title" style="grid-column: auto;">Text</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="swatch-card" role="listitem" data-copy="#1c1529" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-text-heading); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Heading</span>
+                  <span class="swatch-var">--anm-color-text-heading</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#3e3455" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-text-body); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Body</span>
+                  <span class="swatch-var">--anm-color-text-body</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#7a6f93" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-text-sub); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Sub</span>
+                  <span class="swatch-var">--anm-color-text-sub</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#b8b2cc" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-text-disabled); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Disabled</span>
+                  <span class="swatch-var">--anm-color-text-disabled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Background -->
+          <div>
+            <p class="semantic-group-title" style="grid-column: auto;">Background</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="swatch-card" role="listitem" data-copy="#f8f7fd" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-bg-page); border: 1px solid var(--anm-color-border-subtle); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Page</span>
+                  <span class="swatch-var">--anm-color-bg-page</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#ffffff" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-bg-card); border: 1px solid var(--anm-color-border-subtle); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Card</span>
+                  <span class="swatch-var">--anm-color-bg-card</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#f0ecf8" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-bg-section); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Section</span>
+                  <span class="swatch-var">--anm-color-bg-section</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Border -->
+          <div>
+            <p class="semantic-group-title" style="grid-column: auto;">Border</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="swatch-card" role="listitem" data-copy="#e2dcf0" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-border-default); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Default</span>
+                  <span class="swatch-var">--anm-color-border-default</span>
+                </div>
+              </div>
+              <div class="swatch-card" role="listitem" data-copy="#ede9f5" title="クリックでコピー" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px;">
+                <div style="width: 32px; height: 32px; border-radius: var(--anm-radius-sm); background-color: var(--anm-color-border-subtle); border: 1px solid var(--anm-color-border-default); flex-shrink: 0;"></div>
+                <div>
+                  <span class="swatch-label" style="display:block;">Subtle</span>
+                  <span class="swatch-var">--anm-color-border-subtle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           Typography
+           ====================================================== -->
+      <section class="section-card" id="typography" aria-labelledby="typography-heading">
+        <h2 id="typography-heading" class="section-title">Typography</h2>
+
+        <h3 class="subsection-title">Type Scale</h3>
+        <div class="type-scale-list" role="list">
+          <!-- Display -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-display-size); font-weight: var(--anm-text-display-weight); line-height: var(--anm-text-display-line-height);">
+              Display — 表示見出し
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">Display</span>
+              <span class="type-meta-spec">36px · 700 · lh 1.20</span>
+              <span class="type-meta-usage">ヒーロー、スプラッシュ</span>
+            </div>
+          </div>
+          <!-- H1 -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-h1-size); font-weight: var(--anm-text-h1-weight); line-height: var(--anm-text-h1-line-height);">
+              H1 — ページタイトル
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">H1</span>
+              <span class="type-meta-spec">30px · 700 · lh 1.25</span>
+              <span class="type-meta-usage">ページ見出し</span>
+            </div>
+          </div>
+          <!-- H2 -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-h2-size); font-weight: var(--anm-text-h2-weight); line-height: var(--anm-text-h2-line-height);">
+              H2 — セクション見出し
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">H2</span>
+              <span class="type-meta-spec">24px · 600 · lh 1.30</span>
+              <span class="type-meta-usage">セクション区切り</span>
+            </div>
+          </div>
+          <!-- H3 -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-h3-size); font-weight: var(--anm-text-h3-weight); line-height: var(--anm-text-h3-line-height);">
+              H3 — サブセクション見出し
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">H3</span>
+              <span class="type-meta-spec">20px · 600 · lh 1.35</span>
+              <span class="type-meta-usage">カード見出し</span>
+            </div>
+          </div>
+          <!-- Large -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-large-size); font-weight: var(--anm-text-large-weight); line-height: var(--anm-text-large-line-height);">
+              Large — リード文、強調本文テキスト
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">Large</span>
+              <span class="type-meta-spec">18px · 400 · lh 1.50</span>
+              <span class="type-meta-usage">リード文、注目テキスト</span>
+            </div>
+          </div>
+          <!-- Base -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-base-size); font-weight: var(--anm-text-base-weight); line-height: var(--anm-text-base-line-height);">
+              Base — 標準本文テキスト。システム開発という論理の世界に美しさを。
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">Base</span>
+              <span class="type-meta-spec">16px · 400 · lh 1.60</span>
+              <span class="type-meta-usage">本文標準 (1rem)</span>
+            </div>
+          </div>
+          <!-- Small -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-small-size); font-weight: var(--anm-text-small-weight); line-height: var(--anm-text-small-line-height);">
+              Small — 補助テキスト、ラベル、キャプション
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">Small</span>
+              <span class="type-meta-spec">14px · 400 · lh 1.50</span>
+              <span class="type-meta-usage">補助テキスト、ラベル</span>
+            </div>
+          </div>
+          <!-- XXSmall -->
+          <div class="type-scale-item" role="listitem">
+            <div class="type-scale-preview" style="font-size: var(--anm-text-xxsmall-size); font-weight: var(--anm-text-xxsmall-weight); line-height: var(--anm-text-xxsmall-line-height);">
+              XXSmall — バッジ、タイムスタンプ、メタ情報
+            </div>
+            <div class="type-scale-meta">
+              <span class="type-meta-name">XXSmall</span>
+              <span class="type-meta-spec">12px · 400 · lh 1.45</span>
+              <span class="type-meta-usage">バッジ、タグ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Font Specimens -->
+        <h3 class="subsection-title" style="margin-top: var(--anm-space-8);">Fonts</h3>
+        <div class="font-specimens">
+          <div class="font-specimen">
+            <div class="font-specimen-name">Latin UI</div>
+            <div class="font-specimen-preview" style="font-family: 'Inter', sans-serif;">Inter Aa Bb</div>
+            <p style="font-size: 13px; color: var(--anm-color-text-sub); margin-bottom: var(--anm-space-3); font-family: 'Inter', sans-serif;">The quick brown fox jumps</p>
+            <div class="font-specimen-weights">
+              <span class="weight-chip" style="font-family: 'Inter'; font-weight: 400;">Regular 400</span>
+              <span class="weight-chip" style="font-family: 'Inter'; font-weight: 500;">Medium 500</span>
+              <span class="weight-chip" style="font-family: 'Inter'; font-weight: 600;">SemiBold 600</span>
+              <span class="weight-chip" style="font-family: 'Inter'; font-weight: 700;">Bold 700</span>
+            </div>
+          </div>
+          <div class="font-specimen">
+            <div class="font-specimen-name">Japanese</div>
+            <div class="font-specimen-preview" style="font-family: 'Noto Sans JP', sans-serif;">あアー漢字</div>
+            <p style="font-size: 13px; color: var(--anm-color-text-sub); margin-bottom: var(--anm-space-3); font-family: 'Noto Sans JP', sans-serif;">美しいシステム開発</p>
+            <div class="font-specimen-weights">
+              <span class="weight-chip" style="font-family: 'Noto Sans JP'; font-weight: 400;">Regular 400</span>
+              <span class="weight-chip" style="font-family: 'Noto Sans JP'; font-weight: 500;">Medium 500</span>
+              <span class="weight-chip" style="font-family: 'Noto Sans JP'; font-weight: 700;">Bold 700</span>
+            </div>
+          </div>
+          <div class="font-specimen">
+            <div class="font-specimen-name">Code</div>
+            <div class="font-specimen-preview" style="font-family: 'JetBrains Mono', monospace; font-variant-ligatures: none;">const x = 42;</div>
+            <p style="font-size: 13px; color: var(--anm-color-text-sub); margin-bottom: var(--anm-space-3); font-family: 'JetBrains Mono', monospace; font-variant-ligatures: none;">0x1A2B3C4D</p>
+            <div class="font-specimen-weights">
+              <span class="weight-chip" style="font-family: 'JetBrains Mono'; font-weight: 400;">Regular 400</span>
+              <span class="weight-chip" style="font-family: 'JetBrains Mono'; font-weight: 700;">Bold 700</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           Spacing
+           ====================================================== -->
+      <section class="section-card" id="spacing" aria-labelledby="spacing-heading">
+        <h2 id="spacing-heading" class="section-title">Spacing</h2>
+        <p style="color: var(--anm-color-text-sub); font-size: var(--anm-text-small-size); margin-bottom: var(--anm-space-6);">4px ベースのスペーシングスケール。<code>--anm-space-{n}</code> でアクセス。</p>
+        <div class="spacing-list" role="list">
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-1</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 4px;" aria-label="4px"></div>
+              <span class="spacing-px">4px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-2</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 8px;" aria-label="8px"></div>
+              <span class="spacing-px">8px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-3</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 12px;" aria-label="12px"></div>
+              <span class="spacing-px">12px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-4</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 16px;" aria-label="16px"></div>
+              <span class="spacing-px">16px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-5</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 20px;" aria-label="20px"></div>
+              <span class="spacing-px">20px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-6</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 24px;" aria-label="24px"></div>
+              <span class="spacing-px">24px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-8</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 32px;" aria-label="32px"></div>
+              <span class="spacing-px">32px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-10</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 40px;" aria-label="40px"></div>
+              <span class="spacing-px">40px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-12</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 48px;" aria-label="48px"></div>
+              <span class="spacing-px">48px</span>
+            </div>
+          </div>
+          <div class="spacing-item" role="listitem">
+            <span class="spacing-label">--anm-space-16</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width: 64px;" aria-label="64px"></div>
+              <span class="spacing-px">64px</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           Components
+           ====================================================== -->
+      <section class="section-card" id="components" aria-labelledby="components-heading">
+        <h2 id="components-heading" class="section-title">Components</h2>
+
+        <!-- Buttons -->
+        <h3 class="subsection-title">Buttons</h3>
+        <div class="component-group">
+          <p style="font-size: var(--anm-text-small-size); color: var(--anm-color-text-sub); margin-bottom: var(--anm-space-3);">Variants × Sizes</p>
+
+          <div style="display: flex; flex-direction: column; gap: var(--anm-space-4);">
+            <!-- sm row -->
+            <div>
+              <p style="font-size: 11px; font-weight: 600; color: var(--anm-color-text-sub); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Small</p>
+              <div class="component-row">
+                <button class="btn btn-primary btn-sm" type="button">Primary</button>
+                <button class="btn btn-secondary btn-sm" type="button">Secondary</button>
+                <button class="btn btn-outline btn-sm" type="button">Outline</button>
+                <button class="btn btn-ghost btn-sm" type="button">Ghost</button>
+                <button class="btn btn-destructive btn-sm" type="button">Destructive</button>
+              </div>
+            </div>
+            <!-- md row -->
+            <div>
+              <p style="font-size: 11px; font-weight: 600; color: var(--anm-color-text-sub); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Medium (Default)</p>
+              <div class="component-row">
+                <button class="btn btn-primary btn-md" type="button">Primary</button>
+                <button class="btn btn-secondary btn-md" type="button">Secondary</button>
+                <button class="btn btn-outline btn-md" type="button">Outline</button>
+                <button class="btn btn-ghost btn-md" type="button">Ghost</button>
+                <button class="btn btn-destructive btn-md" type="button">Destructive</button>
+              </div>
+            </div>
+            <!-- lg row -->
+            <div>
+              <p style="font-size: 11px; font-weight: 600; color: var(--anm-color-text-sub); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Large</p>
+              <div class="component-row">
+                <button class="btn btn-primary btn-lg" type="button">Primary</button>
+                <button class="btn btn-secondary btn-lg" type="button">Secondary</button>
+                <button class="btn btn-outline btn-lg" type="button">Outline</button>
+                <button class="btn btn-ghost btn-lg" type="button">Ghost</button>
+                <button class="btn btn-destructive btn-lg" type="button">Destructive</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <h3 class="subsection-title">Alerts</h3>
+        <div class="component-group">
+          <div class="alert alert-info" role="alert">
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <div class="alert-body">
+              <p class="alert-title">情報</p>
+              <p class="alert-desc">この変更は次回のデプロイ時に適用されます。</p>
+            </div>
+          </div>
+          <div class="alert alert-success" role="alert">
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <div class="alert-body">
+              <p class="alert-title">成功</p>
+              <p class="alert-desc">設定が正常に保存されました。</p>
+            </div>
+          </div>
+          <div class="alert alert-warning" role="alert">
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <div class="alert-body">
+              <p class="alert-title">警告</p>
+              <p class="alert-desc">APIレート制限に近づいています。使用量を確認してください。</p>
+            </div>
+          </div>
+          <div class="alert alert-error" role="alert">
+            <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <div class="alert-body">
+              <p class="alert-title">エラー</p>
+              <p class="alert-desc">接続に失敗しました。ネットワーク設定を確認してください。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <h3 class="subsection-title">Badges</h3>
+        <div class="component-group">
+          <div class="component-row">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-info">Info</span>
+            <span class="badge badge-neutral">Neutral</span>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <h3 class="subsection-title">Cards</h3>
+        <div class="cards-grid">
+          <div class="demo-card">
+            <h4 class="demo-card-title">Default Card</h4>
+            <p class="demo-card-desc">標準のカードコンポーネント。コンテンツのグループ化に使用します。背景は <code>--anm-color-bg-card</code> を参照。</p>
+          </div>
+          <div class="demo-card demo-card-interactive" tabindex="0" role="button" aria-label="Interactive Card">
+            <h4 class="demo-card-title">Interactive Card</h4>
+            <p class="demo-card-desc">ホバー時に浮き上がるインタラクティブなカード。クリック可能なコンテンツに使用します。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================
+           Reference
+           ====================================================== -->
+      <section class="section-card" id="reference" aria-labelledby="reference-heading">
+        <h2 id="reference-heading" class="section-title">Reference</h2>
+
+        <!-- Color Token Table -->
+        <h3 class="subsection-title">Color Tokens</h3>
+        <div class="token-table-wrap">
+          <table class="token-table">
+            <thead>
+              <tr>
+                <th scope="col">Token</th>
+                <th scope="col">Value</th>
+                <th scope="col">Preview</th>
+                <th scope="col">Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="token-var">--anm-color-primary-600</td><td class="token-hex">#5c38c0</td><td><span class="token-preview" style="background-color:#5c38c0;"></span></td><td class="token-usage">Primary Default — CTA / リンク</td></tr>
+              <tr><td class="token-var">--anm-color-primary-700</td><td class="token-hex">#4b2da5</td><td><span class="token-preview" style="background-color:#4b2da5;"></span></td><td class="token-usage">ホバー</td></tr>
+              <tr><td class="token-var">--anm-color-primary-800</td><td class="token-hex">#3c238a</td><td><span class="token-preview" style="background-color:#3c238a;"></span></td><td class="token-usage">プレス / アクティブ</td></tr>
+              <tr><td class="token-var">--anm-color-accent-main</td><td class="token-hex">#c0388a</td><td><span class="token-preview" style="background-color:#c0388a;"></span></td><td class="token-usage">アネモネピンク — ブランドアクセント</td></tr>
+              <tr><td class="token-var">--anm-color-text-heading</td><td class="token-hex">#1c1529</td><td><span class="token-preview" style="background-color:#1c1529;"></span></td><td class="token-usage">見出しテキスト</td></tr>
+              <tr><td class="token-var">--anm-color-text-body</td><td class="token-hex">#3e3455</td><td><span class="token-preview" style="background-color:#3e3455;"></span></td><td class="token-usage">本文テキスト</td></tr>
+              <tr><td class="token-var">--anm-color-text-sub</td><td class="token-hex">#7a6f93</td><td><span class="token-preview" style="background-color:#7a6f93;"></span></td><td class="token-usage">補助テキスト</td></tr>
+              <tr><td class="token-var">--anm-color-bg-page</td><td class="token-hex">#f8f7fd</td><td><span class="token-preview" style="background-color:#f8f7fd; border:1px solid #e2dcf0;"></span></td><td class="token-usage">ページ背景</td></tr>
+              <tr><td class="token-var">--anm-color-bg-card</td><td class="token-hex">#ffffff</td><td><span class="token-preview" style="background-color:#ffffff; border:1px solid #e2dcf0;"></span></td><td class="token-usage">カード / サーフェス</td></tr>
+              <tr><td class="token-var">--anm-color-error-main</td><td class="token-hex">#dc2626</td><td><span class="token-preview" style="background-color:#dc2626;"></span></td><td class="token-usage">エラー主色</td></tr>
+              <tr><td class="token-var">--anm-color-warning-main</td><td class="token-hex">#d97706</td><td><span class="token-preview" style="background-color:#d97706;"></span></td><td class="token-usage">警告主色</td></tr>
+              <tr><td class="token-var">--anm-color-success-main</td><td class="token-hex">#16a34a</td><td><span class="token-preview" style="background-color:#16a34a;"></span></td><td class="token-usage">成功主色</td></tr>
+              <tr><td class="token-var">--anm-color-info-main</td><td class="token-hex">#0891b2</td><td><span class="token-preview" style="background-color:#0891b2;"></span></td><td class="token-usage">情報主色</td></tr>
+              <tr><td class="token-var">--anm-color-border-default</td><td class="token-hex">#e2dcf0</td><td><span class="token-preview" style="background-color:#e2dcf0;"></span></td><td class="token-usage">標準ボーダー</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Typography Token Table -->
+        <h3 class="subsection-title">Typography Tokens</h3>
+        <div class="token-table-wrap">
+          <table class="token-table">
+            <thead>
+              <tr>
+                <th scope="col">Token</th>
+                <th scope="col">Value</th>
+                <th scope="col">Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="token-var">--anm-font-family-sans</td><td class="token-hex">'Inter', 'Noto Sans JP', …</td><td class="token-usage">UIテキスト全般</td></tr>
+              <tr><td class="token-var">--anm-font-family-mono</td><td class="token-hex">'JetBrains Mono', …</td><td class="token-usage">コード表示</td></tr>
+              <tr><td class="token-var">--anm-text-display-size</td><td class="token-hex">36px</td><td class="token-usage">Display 見出し</td></tr>
+              <tr><td class="token-var">--anm-text-h1-size</td><td class="token-hex">30px</td><td class="token-usage">H1 ページタイトル</td></tr>
+              <tr><td class="token-var">--anm-text-h2-size</td><td class="token-hex">24px</td><td class="token-usage">H2 セクション見出し</td></tr>
+              <tr><td class="token-var">--anm-text-h3-size</td><td class="token-hex">20px</td><td class="token-usage">H3 サブセクション</td></tr>
+              <tr><td class="token-var">--anm-text-base-size</td><td class="token-hex">16px</td><td class="token-usage">本文標準 (1rem)</td></tr>
+              <tr><td class="token-var">--anm-text-small-size</td><td class="token-hex">14px</td><td class="token-usage">補助テキスト</td></tr>
+              <tr><td class="token-var">--anm-text-xxsmall-size</td><td class="token-hex">12px</td><td class="token-usage">バッジ、タイムスタンプ</td></tr>
+              <tr><td class="token-var">--anm-font-weight-regular</td><td class="token-hex">400</td><td class="token-usage">通常ウェイト</td></tr>
+              <tr><td class="token-var">--anm-font-weight-medium</td><td class="token-hex">500</td><td class="token-usage">ボタン、ラベル</td></tr>
+              <tr><td class="token-var">--anm-font-weight-semibold</td><td class="token-hex">600</td><td class="token-usage">見出し H2/H3</td></tr>
+              <tr><td class="token-var">--anm-font-weight-bold</td><td class="token-hex">700</td><td class="token-usage">見出し Display/H1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Anemonet Brand Design System</span>
+        <span class="footer-meta">v1.0.0 &mdash; &copy; 2026 Anemonet. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

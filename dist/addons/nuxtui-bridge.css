@@ -1,0 +1,78 @@
+/*
+ * Anemonet Brand Design — @nuxt/ui Bridge
+ * Maps --anm-* tokens to @nuxt/ui CSS variable conventions.
+ * Usage: @import "@anemonet/brand-design/addons/nuxtui";
+ */
+
+:root {
+  /* Primary */
+  --ui-color-primary-50: var(--anm-color-primary-50);
+  --ui-color-primary-100: var(--anm-color-primary-100);
+  --ui-color-primary-200: var(--anm-color-primary-200);
+  --ui-color-primary-300: var(--anm-color-primary-300);
+  --ui-color-primary-400: var(--anm-color-primary-400);
+  --ui-color-primary-500: var(--anm-color-primary-500);
+  --ui-primary: var(--anm-color-primary-600);
+  --ui-color-primary-600: var(--anm-color-primary-600);
+  --ui-color-primary-700: var(--anm-color-primary-700);
+  --ui-color-primary-800: var(--anm-color-primary-800);
+  --ui-color-primary-900: var(--anm-color-primary-900);
+  --ui-color-primary-950: var(--anm-color-primary-950);
+
+  /* Neutral */
+  --ui-color-neutral-50: var(--anm-color-neutral-50);
+  --ui-color-neutral-100: var(--anm-color-neutral-100);
+  --ui-color-neutral-200: var(--anm-color-neutral-200);
+  --ui-color-neutral-300: var(--anm-color-neutral-300);
+  --ui-color-neutral-400: var(--anm-color-neutral-400);
+  --ui-color-neutral-500: var(--anm-color-neutral-500);
+  --ui-color-neutral-600: var(--anm-color-neutral-600);
+  --ui-color-neutral-700: var(--anm-color-neutral-700);
+  --ui-color-neutral-800: var(--anm-color-neutral-800);
+  --ui-color-neutral-900: var(--anm-color-neutral-900);
+  --ui-color-neutral-950: var(--anm-color-neutral-950);
+
+  /* Text */
+  --ui-text-heading: var(--anm-color-text-heading);
+  --ui-text-body: var(--anm-color-text-body);
+  --ui-text-sub: var(--anm-color-text-sub);
+  --ui-text-disabled: var(--anm-color-text-disabled);
+
+  /* Backgrounds */
+  --ui-bg-page: var(--anm-color-bg-page);
+  --ui-bg-card: var(--anm-color-bg-card);
+  --ui-bg-section: var(--anm-color-bg-section);
+
+  /* Error */
+  --ui-color-error-main: var(--anm-color-error-main);
+  --ui-color-error-light-bg: var(--anm-color-error-light-bg);
+  --ui-color-error-dark-bg: var(--anm-color-error-dark-bg);
+
+  /* Warning */
+  --ui-color-warning-main: var(--anm-color-warning-main);
+  --ui-color-warning-light-bg: var(--anm-color-warning-light-bg);
+  --ui-color-warning-dark-bg: var(--anm-color-warning-dark-bg);
+
+  /* Success */
+  --ui-color-success-main: var(--anm-color-success-main);
+  --ui-color-success-light-bg: var(--anm-color-success-light-bg);
+  --ui-color-success-dark-bg: var(--anm-color-success-dark-bg);
+
+  /* Info */
+  --ui-color-info-main: var(--anm-color-info-main);
+  --ui-color-info-light-bg: var(--anm-color-info-light-bg);
+  --ui-color-info-dark-bg: var(--anm-color-info-dark-bg);
+
+  /* Typography */
+  --ui-font-sans: var(--anm-font-family-sans);
+  --ui-font-mono: var(--anm-font-family-mono);
+
+  /* Radius */
+  --ui-radius-none: var(--anm-radius-none);
+  --ui-radius-sm: var(--anm-radius-sm);
+  --ui-radius-md: var(--anm-radius-md);
+  --ui-radius-lg: var(--anm-radius-lg);
+  --ui-radius-xl: var(--anm-radius-xl);
+  --ui-radius-full: var(--anm-radius-full);
+
+}

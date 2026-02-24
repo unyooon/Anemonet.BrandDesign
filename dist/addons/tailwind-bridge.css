@@ -1,0 +1,108 @@
+/*
+ * Anemonet Brand Design — Tailwind v4 Bridge
+ * Maps --anm-* tokens into Tailwind v4 @theme namespace.
+ * Usage: @import "@anemonet/brand-design/addons/tailwind";
+ */
+
+@theme {
+  /* Colors */
+  --color-anm-primary-50: var(--anm-color-primary-50);
+  --color-anm-primary-100: var(--anm-color-primary-100);
+  --color-anm-primary-200: var(--anm-color-primary-200);
+  --color-anm-primary-300: var(--anm-color-primary-300);
+  --color-anm-primary-400: var(--anm-color-primary-400);
+  --color-anm-primary-500: var(--anm-color-primary-500);
+  --color-anm-primary-600: var(--anm-color-primary-600);
+  --color-anm-primary-700: var(--anm-color-primary-700);
+  --color-anm-primary-800: var(--anm-color-primary-800);
+  --color-anm-primary-900: var(--anm-color-primary-900);
+  --color-anm-primary-950: var(--anm-color-primary-950);
+  --color-anm-neutral-50: var(--anm-color-neutral-50);
+  --color-anm-neutral-100: var(--anm-color-neutral-100);
+  --color-anm-neutral-200: var(--anm-color-neutral-200);
+  --color-anm-neutral-300: var(--anm-color-neutral-300);
+  --color-anm-neutral-400: var(--anm-color-neutral-400);
+  --color-anm-neutral-500: var(--anm-color-neutral-500);
+  --color-anm-neutral-600: var(--anm-color-neutral-600);
+  --color-anm-neutral-700: var(--anm-color-neutral-700);
+  --color-anm-neutral-800: var(--anm-color-neutral-800);
+  --color-anm-neutral-900: var(--anm-color-neutral-900);
+  --color-anm-neutral-950: var(--anm-color-neutral-950);
+  --color-anm-error-main: var(--anm-color-error-main);
+  --color-anm-error-light-bg: var(--anm-color-error-light-bg);
+  --color-anm-error-dark-bg: var(--anm-color-error-dark-bg);
+  --color-anm-warning-main: var(--anm-color-warning-main);
+  --color-anm-warning-light-bg: var(--anm-color-warning-light-bg);
+  --color-anm-warning-dark-bg: var(--anm-color-warning-dark-bg);
+  --color-anm-success-main: var(--anm-color-success-main);
+  --color-anm-success-light-bg: var(--anm-color-success-light-bg);
+  --color-anm-success-dark-bg: var(--anm-color-success-dark-bg);
+  --color-anm-info-main: var(--anm-color-info-main);
+  --color-anm-info-light-bg: var(--anm-color-info-light-bg);
+  --color-anm-info-dark-bg: var(--anm-color-info-dark-bg);
+  --color-anm-accent-main: var(--anm-color-accent-main);
+  --color-anm-accent-tint: var(--anm-color-accent-tint);
+  --color-anm-text-heading: var(--anm-color-text-heading);
+  --color-anm-text-body: var(--anm-color-text-body);
+  --color-anm-text-sub: var(--anm-color-text-sub);
+  --color-anm-text-disabled: var(--anm-color-text-disabled);
+  --color-anm-bg-page: var(--anm-color-bg-page);
+  --color-anm-bg-card: var(--anm-color-bg-card);
+  --color-anm-bg-section: var(--anm-color-bg-section);
+  --color-anm-border-default: var(--anm-color-border-default);
+  --color-anm-border-subtle: var(--anm-color-border-subtle);
+  --color-anm-action-primary-default: var(--anm-color-action-primary-default);
+  --color-anm-action-primary-hover: var(--anm-color-action-primary-hover);
+  --color-anm-action-primary-press: var(--anm-color-action-primary-press);
+  --color-anm-action-primary-subtle: var(--anm-color-action-primary-subtle);
+  --color-anm-action-primary-tint: var(--anm-color-action-primary-tint);
+  --color-anm-status-error: var(--anm-color-status-error);
+  --color-anm-status-warning: var(--anm-color-status-warning);
+  --color-anm-status-success: var(--anm-color-status-success);
+  --color-anm-status-info: var(--anm-color-status-info);
+  --color-anm-status-error-bg: var(--anm-color-status-error-bg);
+  --color-anm-status-warning-bg: var(--anm-color-status-warning-bg);
+  --color-anm-status-success-bg: var(--anm-color-status-success-bg);
+  --color-anm-status-info-bg: var(--anm-color-status-info-bg);
+
+  /* Font Families */
+  --font-family-anm-sans: var(--anm-font-family-sans);
+  --font-family-anm-mono: var(--anm-font-family-mono);
+
+  /* Font Sizes */
+  --text-anm-display: var(--anm-text-display-size);
+  --text-anm-h1: var(--anm-text-h1-size);
+  --text-anm-h2: var(--anm-text-h2-size);
+  --text-anm-h3: var(--anm-text-h3-size);
+  --text-anm-large: var(--anm-text-large-size);
+  --text-anm-base: var(--anm-text-base-size);
+  --text-anm-small: var(--anm-text-small-size);
+  --text-anm-xxsmall: var(--anm-text-xxsmall-size);
+
+  /* Spacing */
+  --spacing-anm-1: var(--anm-space-1);
+  --spacing-anm-2: var(--anm-space-2);
+  --spacing-anm-3: var(--anm-space-3);
+  --spacing-anm-4: var(--anm-space-4);
+  --spacing-anm-5: var(--anm-space-5);
+  --spacing-anm-6: var(--anm-space-6);
+  --spacing-anm-8: var(--anm-space-8);
+  --spacing-anm-10: var(--anm-space-10);
+  --spacing-anm-12: var(--anm-space-12);
+  --spacing-anm-16: var(--anm-space-16);
+
+  /* Border Radius */
+  --radius-anm-none: var(--anm-radius-none);
+  --radius-anm-sm: var(--anm-radius-sm);
+  --radius-anm-md: var(--anm-radius-md);
+  --radius-anm-lg: var(--anm-radius-lg);
+  --radius-anm-xl: var(--anm-radius-xl);
+  --radius-anm-full: var(--anm-radius-full);
+
+  /* Shadows */
+  --shadow-anm-none: var(--anm-shadow-none);
+  --shadow-anm-sm: var(--anm-shadow-sm);
+  --shadow-anm-md: var(--anm-shadow-md);
+  --shadow-anm-lg: var(--anm-shadow-lg);
+
+}

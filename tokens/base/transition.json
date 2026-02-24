@@ -1,0 +1,17 @@
+{
+  "transition": {
+    "duration": {
+      "fast":    { "$value": "75ms",  "$type": "duration", "$description": "最速 — マイクロインタラクション (ホバー表示切替等)" },
+      "normal":  { "$value": "150ms", "$type": "duration", "$description": "標準 — ボタン、リンク、入力フォーカス" },
+      "slow":    { "$value": "300ms", "$type": "duration", "$description": "やや遅 — パネル開閉、フェード" },
+      "slower":  { "$value": "500ms", "$type": "duration", "$description": "遅 — ページトランジション" },
+      "slowest": { "$value": "700ms", "$type": "duration", "$description": "最遅 — スプラッシュ、ブランド演出" }
+    },
+    "easing": {
+      "default":    { "$value": "cubic-bezier(0.4, 0, 0.2, 1)", "$type": "cubicBezier", "$description": "標準 ease-in-out" },
+      "in":         { "$value": "cubic-bezier(0.4, 0, 1, 1)",   "$type": "cubicBezier", "$description": "要素の退場" },
+      "out":        { "$value": "cubic-bezier(0, 0, 0.2, 1)",   "$type": "cubicBezier", "$description": "要素の登場" },
+      "spring":     { "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "$type": "cubicBezier", "$description": "バネ感 — アクティブフィードバック" }
+    }
+  }
+}

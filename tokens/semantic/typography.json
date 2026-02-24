@@ -1,0 +1,52 @@
+{
+  "text": {
+    "display": {
+      "size":       { "$value": "36px", "$type": "dimension",  "$description": "Display — 最大見出し" },
+      "weight":     { "$value": 700,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.20,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "h1": {
+      "size":       { "$value": "30px", "$type": "dimension",  "$description": "H1 — ページタイトル" },
+      "weight":     { "$value": 700,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.25,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "h2": {
+      "size":       { "$value": "24px", "$type": "dimension",  "$description": "H2 — セクション見出し" },
+      "weight":     { "$value": 600,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.30,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "h3": {
+      "size":       { "$value": "20px", "$type": "dimension",  "$description": "H3 — サブセクション見出し" },
+      "weight":     { "$value": 600,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.35,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "large": {
+      "size":       { "$value": "18px", "$type": "dimension",  "$description": "Large — リード文、強調本文" },
+      "weight":     { "$value": 400,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.50,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "base": {
+      "size":       { "$value": "16px", "$type": "dimension",  "$description": "Base — 標準本文 (1rem)" },
+      "weight":     { "$value": 400,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.60,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "small": {
+      "size":       { "$value": "14px", "$type": "dimension",  "$description": "Small — 補助テキスト、ラベル" },
+      "weight":     { "$value": 400,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.50,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    },
+    "xxsmall": {
+      "size":       { "$value": "12px", "$type": "dimension",  "$description": "XXSmall — バッジ、タイムスタンプ" },
+      "weight":     { "$value": 400,    "$type": "fontWeight" },
+      "lineHeight": { "$value": 1.45,   "$type": "number" },
+      "family":     { "$value": "{font.family.sans}", "$type": "fontFamily" }
+    }
+  }
+}

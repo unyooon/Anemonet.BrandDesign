@@ -1,0 +1,14 @@
+{
+  "space": {
+    "1":  { "$value": "4px",  "$type": "dimension", "$description": "4px — 最小間隔" },
+    "2":  { "$value": "8px",  "$type": "dimension", "$description": "8px" },
+    "3":  { "$value": "12px", "$type": "dimension", "$description": "12px" },
+    "4":  { "$value": "16px", "$type": "dimension", "$description": "16px — ベース単位" },
+    "5":  { "$value": "20px", "$type": "dimension", "$description": "20px" },
+    "6":  { "$value": "24px", "$type": "dimension", "$description": "24px" },
+    "8":  { "$value": "32px", "$type": "dimension", "$description": "32px" },
+    "10": { "$value": "40px", "$type": "dimension", "$description": "40px" },
+    "12": { "$value": "48px", "$type": "dimension", "$description": "48px" },
+    "16": { "$value": "64px", "$type": "dimension", "$description": "64px — 最大標準間隔" }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "color": {
+    "primary": {
+      "50":  { "$value": "#F5F2FD", "$type": "color", "$description": "最も明るい — 選択状態背景" },
+      "100": { "$value": "#EBE5FB", "$type": "color", "$description": "Tint 3 — 強調ハイライト背景" },
+      "200": { "$value": "#D5C8F7", "$type": "color", "$description": "Tint 2 — ソフトアクセント" },
+      "300": { "$value": "#B9A0EE", "$type": "color", "$description": "Tint 1 — ホバーソフト" },
+      "400": { "$value": "#9472E2", "$type": "color", "$description": "ダークモードリンク" },
+      "500": { "$value": "#7650D3", "$type": "color", "$description": "ダークモードCTA" },
+      "600": { "$value": "#5C38C0", "$type": "color", "$description": "Primary Default — CTA / リンク / アクティブ状態" },
+      "700": { "$value": "#4B2DA5", "$type": "color", "$description": "ホバー" },
+      "800": { "$value": "#3C238A", "$type": "color", "$description": "アクティブ / プレス" },
+      "900": { "$value": "#2D1A6E", "$type": "color", "$description": "深いアクセント" },
+      "950": { "$value": "#1A0E42", "$type": "color", "$description": "最暗" }
+    },
+
+    "neutral": {
+      "50":  { "$value": "#F8F7FC", "$type": "color", "$description": "最も明るいグレー (紫みがかり)" },
+      "100": { "$value": "#F0EEF8", "$type": "color" },
+      "200": { "$value": "#E2DFF1", "$type": "color" },
+      "300": { "$value": "#C9C4DF", "$type": "color" },
+      "400": { "$value": "#A9A2C7", "$type": "color" },
+      "500": { "$value": "#8A82AB", "$type": "color" },
+      "600": { "$value": "#6C648E", "$type": "color" },
+      "700": { "$value": "#524D72", "$type": "color" },
+      "800": { "$value": "#3A3557", "$type": "color" },
+      "900": { "$value": "#242040", "$type": "color" },
+      "950": { "$value": "#141029", "$type": "color", "$description": "最暗グレー" }
+    },
+
+    "error": {
+      "main":     { "$value": "#DC2626", "$type": "color", "$description": "エラー主色 (H≈0, 赤系)" },
+      "light-bg": { "$value": "#FEF2F2", "$type": "color", "$description": "エラー背景 (ライトモード)" },
+      "dark-bg":  { "$value": "#450A0A", "$type": "color", "$description": "エラー背景 (ダークモード)" }
+    },
+
+    "warning": {
+      "main":     { "$value": "#D97706", "$type": "color", "$description": "警告主色 (H≈38, 橙系)" },
+      "light-bg": { "$value": "#FFFBEB", "$type": "color", "$description": "警告背景 (ライトモード)" },
+      "dark-bg":  { "$value": "#451A03", "$type": "color", "$description": "警告背景 (ダークモード)" }
+    },
+
+    "success": {
+      "main":     { "$value": "#16A34A", "$type": "color", "$description": "成功主色 (H≈145, 緑系)" },
+      "light-bg": { "$value": "#F0FDF4", "$type": "color", "$description": "成功背景 (ライトモード)" },
+      "dark-bg":  { "$value": "#052E16", "$type": "color", "$description": "成功背景 (ダークモード)" }
+    },
+
+    "info": {
+      "main":     { "$value": "#0891B2", "$type": "color", "$description": "情報主色 (H≈198, 青緑系 — 紫との差を確保)" },
+      "light-bg": { "$value": "#ECFEFF", "$type": "color", "$description": "情報背景 (ライトモード)" },
+      "dark-bg":  { "$value": "#083344", "$type": "color", "$description": "情報背景 (ダークモード)" }
+    },
+
+    "accent": {
+      "main": { "$value": "#C0388A", "$type": "color", "$description": "アネモネピンク — ブランドアクセント (花のイメージ)" },
+      "tint": { "$value": "#F5D0E8", "$type": "color", "$description": "アクセントティント — ソフト背景" }
+    }
+  }
+}
