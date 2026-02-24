@@ -13,7 +13,7 @@
    ============================================================ */
 @import '../../dist/css/tokens.css';
 @import '../../dist/css/tokens-dark.css';
-/* utilities loaded separately when available */
+@import '../../dist/css/utilities.css';
 
 /* ============================================================
    Global Reset & Base
