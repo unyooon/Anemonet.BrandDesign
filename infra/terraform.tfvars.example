@@ -1,0 +1,34 @@
+# ============================================================
+# terraform.tfvars の記載例
+# ============================================================
+# このファイルをコピーして terraform.tfvars を作成し、
+# 実際の値を設定してください。
+#
+#   cp terraform.tfvars.example terraform.tfvars
+#
+# terraform.tfvars は .gitignore で除外されているため
+# リポジトリにコミットされません。
+# ============================================================
+
+# GCP プロジェクト ID（グローバルで一意である必要がある）
+# 例: "anemonet-brand-design-prod"
+project_id = "your-project-id"
+
+# GCP 請求アカウント ID
+# Firebase コンソール → プロジェクト設定 → 請求 で確認
+# Spark プラン（無料）の場合でも、プロジェクト作成時に必要になることがある
+# 不要な場合は空文字列のままにする
+billing_account = ""
+
+# GCP 組織 ID
+# 個人アカウント（@gmail.com）の場合は空文字列のままにする
+# 組織アカウントの場合: gcloud organizations list で確認
+org_id = ""
+
+# GCP リージョン
+# Firebase Hosting はグローバル CDN なのでリージョン指定は補助的
+region = "asia-northeast1"
+
+# Firebase Hosting に設定するカスタムドメイン
+# デフォルトは anemone.dev（変更不要な場合はコメントアウト可）
+custom_domain = "anemone.dev"

@@ -110,6 +110,38 @@ code, pre {
   text-transform: uppercase;
 }
 
+/* Header Nav (design-system.html back link) */
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--anm-space-1);
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-text-sub);
+  padding: var(--anm-space-2) var(--anm-space-3);
+  border-radius: var(--anm-radius-md);
+  text-decoration: none;
+  transition:
+    color var(--anm-transition-duration-normal) var(--anm-transition-easing-default),
+    background-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+.header-nav-link:hover {
+  color: var(--anm-color-action-primary-default);
+  background-color: var(--anm-color-action-primary-subtle);
+  text-decoration: none;
+}
+
+.header-nav-link:focus-visible {
+  outline: 2px solid var(--anm-color-action-primary-default);
+  outline-offset: 2px;
+}
+
 /* Theme Toggle */
 .theme-toggle {
   display: flex;

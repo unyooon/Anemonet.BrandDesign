@@ -3,3 +3,19 @@ node_modules/
 *.log
 .vite/
 docs/dist/
+
+# Terraform
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.backup
+infra/.terraform.lock.hcl
+**/terraform.tfvars
+
+# Firebase
+.firebaserc
+.firebase/
+
+# Environment
+.env
+.env.local
+.env.*.local
