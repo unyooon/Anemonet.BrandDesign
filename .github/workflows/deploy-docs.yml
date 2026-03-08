@@ -22,9 +22,6 @@ jobs:
 
       - run: npm run build:docs
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
-          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+      - run: npx firebase-tools deploy --only hosting --project ${{ vars.FIREBASE_PROJECT_ID }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
