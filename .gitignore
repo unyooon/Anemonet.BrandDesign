@@ -15,6 +15,9 @@ infra/.terraform.lock.hcl
 .firebaserc
 .firebase/
 
+# Playwright MCP
+.playwright-mcp/
+
 # Environment
 .env
 .env.local

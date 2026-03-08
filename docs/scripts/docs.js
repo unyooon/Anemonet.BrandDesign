@@ -56,6 +56,40 @@
         }
       });
     });
+
+    // GA4 カスタムイベントトラッキング
+    // ヒーローセクションの「お問い合わせ」ボタン
+    document.querySelectorAll('a[href="#contact"].btn-primary').forEach(function (el) {
+      el.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_contact_button', {
+            button_location: 'hero'
+          });
+        }
+      });
+    });
+
+    // コンタクトセクションの Google Forms リンク
+    document.querySelectorAll('.contact-section a[href*="docs.google.com/forms"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_contact_form', {
+            button_location: 'contact_section'
+          });
+        }
+      });
+    });
+
+    // お問い合わせバナーの Google Forms リンク（privacy.html など）
+    document.querySelectorAll('.contact-banner a[href*="docs.google.com/forms"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_contact_form', {
+            button_location: 'contact_banner'
+          });
+        }
+      });
+    });
   });
 
   function showCopyToast(text) {
