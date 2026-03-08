@@ -297,17 +297,42 @@ a:focus-visible {
 }
 
 /* ============================================================
-   Main
+   Main — ページ全体背景
    ============================================================ */
 .site-main {
   padding-bottom: var(--anm-space-16);
+  position: relative;
+  overflow: hidden;
+  background: var(--anm-color-bg-page);
+}
+
+[data-theme="dark"] .site-main {
+  background: var(--anm-color-bg-page);
 }
 
 /* ============================================================
-   Sections — common
+   Sections — common (すりガラス/フロストガラス風)
    ============================================================ */
 .site-section {
   padding: var(--anm-space-16) 0;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+
+/* セクション内コンテナにすりガラス効果でテキスト可読性を確保 */
+.site-section > .container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--anm-radius-xl);
+  padding-top: var(--anm-space-8);
+  padding-bottom: var(--anm-space-8);
+}
+
+[data-theme="dark"] .site-section > .container {
+  background: rgba(15, 15, 20, 0.65);
 }
 
 .site-section + .site-section {
@@ -340,52 +365,389 @@ a:focus-visible {
 }
 
 /* ============================================================
+   Organic Blobs — 有機的な花びら散布ビジュアル
+   ============================================================ */
+
+/* blob コンテナ */
+.organic-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* blob 共通スタイル */
+.organic-blob {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, border-radius;
+}
+
+/* ob-1: 大きめ不規則blob（花びら風）— 紫系 */
+.ob-1 {
+  width: 500px;
+  height: 350px;
+  top: 2%;
+  right: -5%;
+  background: var(--anm-color-primary-200);
+  opacity: 0.55;
+  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+  filter: blur(50px);
+  animation: ob-morph-1 20s ease-in-out infinite, ob-drift-1 25s ease-in-out infinite;
+}
+
+/* ob-2: 細長い「ぼやけた線」風 — 薄紫→マゼンタグラデーション */
+.ob-2 {
+  width: 600px;
+  height: 80px;
+  top: 12%;
+  left: -10%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--anm-color-primary-300) 30%,
+    rgba(192, 56, 138, 0.5) 70%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: ob-drift-2 30s ease-in-out infinite;
+}
+
+/* ob-3: 中サイズ不規則（マゼンタ/ピンク系） */
+.ob-3 {
+  width: 400px;
+  height: 300px;
+  top: 25%;
+  left: 60%;
+  background: rgba(192, 56, 138, 0.4);
+  opacity: 0.45;
+  border-radius: 44% 56% 65% 35% / 57% 38% 62% 43%;
+  filter: blur(55px);
+  animation: ob-morph-2 18s ease-in-out infinite, ob-drift-3 22s ease-in-out infinite;
+}
+
+/* ob-4: 小さめの渦/点風（アクセント）— 深紫 */
+.ob-4 {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 15%;
+  background: var(--anm-color-primary-400);
+  opacity: 0.35;
+  border-radius: 30% 70% 53% 47% / 52% 35% 65% 48%;
+  filter: blur(40px);
+  animation: ob-morph-3 15s ease-in-out infinite, ob-drift-4 20s ease-in-out infinite;
+}
+
+/* ob-5: 大きな「ぼやけた弧」（ページ中盤）— 紫→マゼンタ */
+.ob-5 {
+  width: 700px;
+  height: 120px;
+  top: 42%;
+  right: -5%;
+  background: linear-gradient(
+    135deg,
+    var(--anm-color-primary-200) 0%,
+    rgba(192, 56, 138, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  border-radius: 40% 60% 55% 45% / 70% 30% 70% 30%;
+  filter: blur(35px);
+  animation: ob-drift-5 28s ease-in-out infinite;
+}
+
+/* ob-6: 中サイズ（ページ中盤〜下、青紫系） */
+.ob-6 {
+  width: 450px;
+  height: 350px;
+  top: 55%;
+  left: -8%;
+  background: rgba(92, 56, 192, 0.35);
+  opacity: 0.5;
+  border-radius: 58% 42% 37% 63% / 45% 62% 38% 55%;
+  filter: blur(50px);
+  animation: ob-morph-4 22s ease-in-out infinite, ob-drift-6 26s ease-in-out infinite;
+}
+
+/* ob-7: 細い曲線風（ページ下部）— 薄紫→マゼンタ */
+.ob-7 {
+  width: 550px;
+  height: 60px;
+  top: 70%;
+  left: 30%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--anm-color-primary-300),
+    rgba(192, 56, 138, 0.4),
+    transparent
+  );
+  opacity: 0.45;
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: ob-drift-7 24s ease-in-out infinite;
+}
+
+/* ob-8: 大きめ（ページ最下部、Contact手前）— 薄紫 */
+.ob-8 {
+  width: 500px;
+  height: 400px;
+  top: 82%;
+  right: 10%;
+  background: var(--anm-color-primary-100);
+  opacity: 0.55;
+  border-radius: 52% 48% 33% 67% / 63% 41% 59% 37%;
+  filter: blur(55px);
+  animation: ob-morph-5 20s ease-in-out infinite, ob-drift-8 30s ease-in-out infinite;
+}
+
+/* --- border-radius モーフィング keyframes --- */
+
+@keyframes ob-morph-1 {
+  0%,   100% { border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%; }
+  25%         { border-radius: 45% 55% 62% 38% / 53% 47% 38% 62%; }
+  50%         { border-radius: 55% 45% 35% 65% / 40% 60% 52% 48%; }
+  75%         { border-radius: 38% 62% 55% 45% / 65% 35% 45% 55%; }
+}
+
+@keyframes ob-morph-2 {
+  0%,   100% { border-radius: 44% 56% 65% 35% / 57% 38% 62% 43%; }
+  30%         { border-radius: 60% 40% 42% 58% / 35% 65% 48% 52%; }
+  60%         { border-radius: 35% 65% 58% 42% / 60% 40% 55% 45%; }
+}
+
+@keyframes ob-morph-3 {
+  0%,   100% { border-radius: 30% 70% 53% 47% / 52% 35% 65% 48%; }
+  40%         { border-radius: 60% 40% 38% 62% / 45% 55% 38% 62%; }
+  70%         { border-radius: 48% 52% 65% 35% / 62% 38% 52% 48%; }
+}
+
+@keyframes ob-morph-4 {
+  0%,   100% { border-radius: 58% 42% 37% 63% / 45% 62% 38% 55%; }
+  35%         { border-radius: 42% 58% 60% 40% / 65% 35% 55% 45%; }
+  65%         { border-radius: 65% 35% 45% 55% / 38% 62% 42% 58%; }
+}
+
+@keyframes ob-morph-5 {
+  0%,   100% { border-radius: 52% 48% 33% 67% / 63% 41% 59% 37%; }
+  30%         { border-radius: 38% 62% 55% 45% / 48% 52% 35% 65%; }
+  60%         { border-radius: 65% 35% 48% 52% / 35% 65% 60% 40%; }
+}
+
+/* --- 位置ドリフト keyframes --- */
+
+@keyframes ob-drift-1 {
+  0%,   100% { transform: translate(0, 0); }
+  33%         { transform: translate(40px, -30px); }
+  66%         { transform: translate(-20px, 40px); }
+}
+
+@keyframes ob-drift-2 {
+  0%,   100% { transform: rotate(-15deg) translate(0, 0); }
+  33%         { transform: rotate(-15deg) translate(-50px, 20px); }
+  66%         { transform: rotate(-15deg) translate(30px, -15px); }
+}
+
+@keyframes ob-drift-3 {
+  0%,   100% { transform: translate(0, 0); }
+  40%         { transform: translate(-30px, 50px); }
+  70%         { transform: translate(45px, -20px); }
+}
+
+@keyframes ob-drift-4 {
+  0%,   100% { transform: translate(0, 0); }
+  50%         { transform: translate(30px, -40px); }
+}
+
+@keyframes ob-drift-5 {
+  0%,   100% { transform: rotate(20deg) translate(0, 0); }
+  33%         { transform: rotate(20deg) translate(-40px, 15px); }
+  66%         { transform: rotate(20deg) translate(25px, -30px); }
+}
+
+@keyframes ob-drift-6 {
+  0%,   100% { transform: translate(0, 0); }
+  30%         { transform: translate(50px, -25px); }
+  70%         { transform: translate(-35px, 45px); }
+}
+
+@keyframes ob-drift-7 {
+  0%,   100% { transform: rotate(-8deg) translate(0, 0); }
+  40%         { transform: rotate(-8deg) translate(40px, -10px); }
+  75%         { transform: rotate(-8deg) translate(-30px, 20px); }
+}
+
+@keyframes ob-drift-8 {
+  0%,   100% { transform: translate(0, 0); }
+  33%         { transform: translate(-30px, -40px); }
+  66%         { transform: translate(50px, 30px); }
+}
+
+/* --- ダークモード --- */
+
+[data-theme="dark"] .ob-1 {
+  background: var(--anm-color-primary-800);
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .ob-2 {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--anm-color-primary-700),
+    rgba(192, 56, 138, 0.4),
+    transparent
+  );
+  opacity: 0.25;
+}
+
+[data-theme="dark"] .ob-3 {
+  background: rgba(192, 56, 138, 0.4);
+  opacity: 0.2;
+}
+
+[data-theme="dark"] .ob-4 {
+  background: var(--anm-color-primary-700);
+  opacity: 0.18;
+}
+
+[data-theme="dark"] .ob-5 {
+  background: linear-gradient(
+    135deg,
+    var(--anm-color-primary-800) 0%,
+    rgba(192, 56, 138, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0.25;
+}
+
+[data-theme="dark"] .ob-6 {
+  background: rgba(92, 56, 192, 0.45);
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .ob-7 {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--anm-color-primary-700),
+    rgba(192, 56, 138, 0.35),
+    transparent
+  );
+  opacity: 0.2;
+}
+
+[data-theme="dark"] .ob-8 {
+  background: var(--anm-color-primary-900);
+  opacity: 0.35;
+}
+
+/* --- レスポンシブ（768px以下） --- */
+@media (max-width: 768px) {
+  .ob-1 {
+    width: 300px;
+    height: 210px;
+    filter: blur(35px);
+  }
+
+  .ob-2 {
+    width: 360px;
+    height: 48px;
+    filter: blur(22px);
+  }
+
+  .ob-3 {
+    width: 240px;
+    height: 180px;
+    filter: blur(38px);
+  }
+
+  .ob-4 {
+    display: none;
+  }
+
+  .ob-5 {
+    width: 420px;
+    height: 72px;
+    filter: blur(25px);
+  }
+
+  .ob-6 {
+    width: 270px;
+    height: 210px;
+    filter: blur(35px);
+  }
+
+  .ob-7 {
+    display: none;
+  }
+
+  .ob-8 {
+    width: 300px;
+    height: 240px;
+    filter: blur(38px);
+  }
+}
+
+/* --- レスポンシブ（480px以下） --- */
+@media (max-width: 480px) {
+  .ob-1 {
+    width: 200px;
+    height: 140px;
+    filter: blur(28px);
+  }
+
+  .ob-2 {
+    display: none;
+  }
+
+  .ob-3 {
+    width: 160px;
+    height: 120px;
+    filter: blur(28px);
+  }
+
+  .ob-5 {
+    display: none;
+  }
+
+  .ob-6 {
+    width: 180px;
+    height: 140px;
+    filter: blur(28px);
+  }
+
+  .ob-8 {
+    width: 200px;
+    height: 160px;
+    filter: blur(32px);
+  }
+}
+
+/* ============================================================
    Hero
    ============================================================ */
 .hero-section {
-  background: linear-gradient(
-    135deg,
-    var(--anm-color-primary-50) 0%,
-    var(--anm-color-bg-page) 55%,
-    var(--anm-color-accent-tint) 100%
-  );
+  /* 背景は site-main をそのまま透過して見せる */
+  background: transparent;
   padding: 80px 0;
   position: relative;
-  overflow: hidden;
-  transition: background var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
-}
-
-[data-theme="dark"] .hero-section {
-  background: linear-gradient(
-    135deg,
-    var(--anm-color-primary-950) 0%,
-    var(--anm-color-bg-page) 55%,
-    rgba(192, 56, 138, 0.1) 100%
-  );
-}
-
-/* 装飾的な背景円 */
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: -120px;
-  right: -120px;
-  width: 480px;
-  height: 480px;
-  border-radius: var(--anm-radius-full);
-  background: radial-gradient(circle, var(--anm-color-primary-100) 0%, transparent 70%);
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-[data-theme="dark"] .hero-section::before {
-  background: radial-gradient(circle, var(--anm-color-primary-900) 0%, transparent 70%);
-  opacity: 0.4;
 }
 
 .hero-section .container {
   position: relative;
   z-index: 1;
+}
+
+/* Hero はすりガラス不要 — blob がそのまま見える */
+.hero-section > .container {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .hero-eyebrow {
@@ -567,7 +929,8 @@ a:focus-visible {
    Services Section
    ============================================================ */
 .service-block {
-  background-color: var(--anm-color-bg-card);
+  /* fallback */
+  background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--anm-color-border-subtle);
   border-radius: var(--anm-radius-xl);
   padding: var(--anm-space-10);
@@ -576,6 +939,26 @@ a:focus-visible {
   transition:
     background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
     border-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .service-block {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .service-block {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .service-block {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 .service-block-header {
@@ -632,13 +1015,34 @@ a:focus-visible {
 
 .process-step {
   flex: 1;
-  background-color: var(--anm-color-bg-section);
+  /* fallback */
+  background-color: rgba(248, 246, 255, 0.85);
   border: 1px solid var(--anm-color-border-subtle);
   border-radius: var(--anm-radius-lg);
   padding: var(--anm-space-5);
   transition:
     background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
     border-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .process-step {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .process-step {
+  background-color: rgba(18, 15, 28, 0.85);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .process-step {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 .process-step:hover {
@@ -701,12 +1105,32 @@ a:focus-visible {
   font-size: var(--anm-text-small-size);
   font-weight: var(--anm-font-weight-medium);
   color: var(--anm-color-text-sub);
-  background-color: var(--anm-color-bg-section);
+  /* fallback */
+  background-color: rgba(248, 246, 255, 0.85);
   border: 1px solid var(--anm-color-border-default);
   border-radius: var(--anm-radius-full);
   padding: var(--anm-space-2) var(--anm-space-4);
   margin-bottom: var(--anm-space-6);
-  transition: background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .process-cycle-note {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .process-cycle-note {
+  background-color: rgba(18, 15, 28, 0.85);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .process-cycle-note {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 .process-cycle-note svg {
@@ -752,13 +1176,34 @@ a:focus-visible {
 }
 
 .deliverable {
-  background-color: var(--anm-color-bg-section);
+  /* fallback */
+  background-color: rgba(248, 246, 255, 0.85);
   border: 1px solid var(--anm-color-border-subtle);
   border-radius: var(--anm-radius-lg);
   padding: var(--anm-space-5);
   transition:
     background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
     border-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .deliverable {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .deliverable {
+  background-color: rgba(18, 15, 28, 0.85);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .deliverable {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
 }
 
 .deliverable:hover {
@@ -807,7 +1252,8 @@ a:focus-visible {
 
 /** Mission / Vision 各カード */
 .mv-card {
-  background-color: var(--anm-color-bg-card);
+  /* fallback */
+  background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--anm-color-border-default);
   border-radius: var(--anm-radius-lg);
   padding: var(--anm-space-6);
@@ -815,6 +1261,26 @@ a:focus-visible {
   transition:
     background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
     border-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .mv-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .mv-card {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .mv-card {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 /** Mission / Vision のラベル（"Mission" / "Vision" の文字） */
@@ -861,7 +1327,8 @@ a:focus-visible {
 /** 各 Value カード: デフォルトは2カラム分（上段3枚）、ビジュアルスタイル含む */
 .value-card {
   grid-column: span 2;
-  background-color: var(--anm-color-bg-card);
+  /* fallback */
+  background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--anm-color-border-subtle);
   border-radius: var(--anm-radius-lg);
   padding: var(--anm-space-6) var(--anm-space-5);
@@ -872,6 +1339,26 @@ a:focus-visible {
     background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
     border-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default),
     box-shadow var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .value-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .value-card {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .value-card {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 /** 4枚目: 2〜4カラム目（中央2枠の左） */
@@ -1284,13 +1771,6 @@ a:focus-visible {
     font-size: var(--anm-text-h1-size);
   }
 
-  .hero-section::before {
-    width: 280px;
-    height: 280px;
-    top: -80px;
-    right: -80px;
-  }
-
   .site-section {
     padding: var(--anm-space-12) 0;
   }
@@ -1447,4 +1927,187 @@ a:focus-visible {
     flex-direction: column;
     gap: var(--anm-space-2);
   }
+}
+
+/* ============================================================
+   Section alternating background
+   ============================================================ */
+
+/** section-alt: 不要（セクション背景は透明、blob を直接見せる） */
+
+/* ============================================================
+   About Us Section
+   ============================================================ */
+
+/** About セクション — 左テキスト / 右アバターの2カラムレイアウト */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--anm-space-12);
+  align-items: center;
+}
+
+/** 代表者名 */
+.about-name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--anm-space-3);
+  font-size: var(--anm-text-h2-size);
+  font-weight: var(--anm-font-weight-bold);
+  color: var(--anm-color-text-heading);
+  line-height: var(--anm-text-h2-line-height);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--anm-space-2);
+  flex-wrap: wrap;
+}
+
+/** 代表者名のローマ字表記 */
+.about-name-roman {
+  font-size: var(--anm-text-base-size);
+  font-weight: var(--anm-font-weight-regular);
+  color: var(--anm-color-text-sub);
+  letter-spacing: 0.02em;
+}
+
+/** 肩書き */
+.about-role {
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-accent-main);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--anm-space-3);
+}
+
+/** 自己紹介文 */
+.about-bio {
+  font-size: var(--anm-text-base-size);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+  max-width: 560px;
+  margin-bottom: var(--anm-space-6);
+}
+
+/** スキルバッジのコンテナ */
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--anm-space-2);
+}
+
+/** 各スキルバッジ */
+.skill-badge {
+  display: inline-block;
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-action-primary-default);
+  background-color: var(--anm-color-action-primary-subtle);
+  border: 1px solid transparent;
+  border-radius: var(--anm-radius-full);
+  padding: var(--anm-space-1) var(--anm-space-3);
+  letter-spacing: 0.02em;
+  transition:
+    background-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default),
+    border-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+.skill-badge:hover {
+  border-color: var(--anm-color-action-primary-default);
+}
+
+/** アバターエリア（将来写真に差し替え可能） */
+.about-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/** 円形プレースホルダー */
+.about-avatar {
+  width: 240px;
+  height: 240px;
+  border-radius: var(--anm-radius-full);
+  background: linear-gradient(
+    135deg,
+    var(--anm-color-primary-100) 0%,
+    var(--anm-color-primary-200) 100%
+  );
+  border: 3px solid var(--anm-color-action-primary-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--anm-shadow-md);
+  transition:
+    background var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
+    border-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+[data-theme="dark"] .about-avatar {
+  background: linear-gradient(
+    135deg,
+    var(--anm-color-primary-900) 0%,
+    var(--anm-color-primary-800) 100%
+  );
+}
+
+/** イニシャルテキスト */
+.about-avatar-initials {
+  font-size: var(--anm-text-display-size);
+  font-weight: var(--anm-font-weight-bold);
+  color: var(--anm-color-action-primary-default);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ============================================================
+   Responsive — About Us (768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: var(--anm-space-8);
+  }
+
+  .about-visual {
+    order: -1;
+  }
+
+  .about-avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-avatar-initials {
+    font-size: var(--anm-text-h1-size);
+  }
+}
+
+/* ============================================================
+   Responsive — About Us (480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .about-avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-avatar-initials {
+    font-size: var(--anm-text-h2-size);
+  }
+
+  .about-name {
+    font-size: var(--anm-text-h3-size);
+  }
+}
+
+/* Hero subtitle for SEO keyword supplement */
+.hero-sub {
+  font-size: var(--anm-text-large-size, 1.125rem);
+  font-weight: 500;
+  color: var(--anm-color-text-muted, #6b7280);
+  margin-top: var(--anm-space-3, 12px);
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
 }

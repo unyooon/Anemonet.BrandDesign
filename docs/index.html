@@ -14,24 +14,25 @@
   -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anemonet — 風を読み、本質を咲かせる。</title>
-  <meta name="description" content="Anemonet は変化の風を読み取り、生成AI駆動開発で顧客が本当に必要とするシステムを構築します。" />
+  <meta name="description" content="AI駆動開発で「本当に必要なシステム」を高速に実現。Claude Code 開発基盤構築にも対応。まずはお気軽にご相談ください。" />
+  <link rel="canonical" href="https://anemonet.dev/" />
 
   <!-- OGP -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://anemone.dev/" />
+  <meta property="og:url" content="https://anemonet.dev/" />
   <meta property="og:title" content="Anemonet — 風を読み、本質を咲かせる。" />
-  <meta property="og:description" content="Anemonet は変化の風を読み取り、生成AI駆動開発で顧客が本当に必要とするシステムを構築します。" />
+  <meta property="og:description" content="AI駆動開発で「本当に必要なシステム」を高速に実現。Claude Code 開発基盤構築にも対応。まずはお気軽にご相談ください。" />
   <meta property="og:site_name" content="Anemonet" />
   <meta property="og:locale" content="ja_JP" />
-  <!-- <meta property="og:image" content="https://anemone.dev/ogp.png" /> -->
+  <!-- <meta property="og:image" content="https://anemonet.dev/ogp.png" /> -->
   <!-- <meta property="og:image:width" content="1200" /> -->
   <!-- <meta property="og:image:height" content="630" /> -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <!-- <meta name="twitter:image" content="https://anemone.dev/ogp.png" /> -->
+  <!-- <meta name="twitter:image" content="https://anemonet.dev/ogp.png" /> -->
   <meta name="twitter:title" content="Anemonet — 風を読み、本質を咲かせる。" />
-  <meta name="twitter:description" content="Anemonet は変化の風を読み取り、生成AI駆動開発で顧客が本当に必要とするシステムを構築します。" />
+  <meta name="twitter:description" content="AI駆動開発で「本当に必要なシステム」を高速に実現。Claude Code 開発基盤構築にも対応。まずはお気軽にご相談ください。" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/icon-192.png" />
@@ -65,6 +66,7 @@
       <!-- Desktop navigation -->
       <nav class="header-nav" aria-label="メインナビゲーション">
         <a href="#philosophy" class="header-nav-link">Philosophy</a>
+        <a href="#about" class="header-nav-link">About Me</a>
         <a href="#services" class="header-nav-link">Services</a>
         <a href="#contact" class="header-nav-link">Contact</a>
       </nav>
@@ -123,6 +125,7 @@
       aria-hidden="true"
     >
       <a href="#philosophy" class="mobile-menu-link">Philosophy</a>
+      <a href="#about" class="mobile-menu-link">About Me</a>
       <a href="#services" class="mobile-menu-link">Services</a>
       <a href="#contact" class="mobile-menu-link">Contact</a>
     </nav>
@@ -131,7 +134,28 @@
   <!-- ============================================================
        Main
        ============================================================ -->
+  <!-- SVG フィルター定義（有機的ノイズ変形） -->
+  <svg class="svg-filters" aria-hidden="true" style="position:absolute;width:0;height:0">
+    <defs>
+      <filter id="organic-noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="60" />
+      </filter>
+    </defs>
+  </svg>
+
   <main class="site-main" id="main-content">
+    <!-- 有機的 blob 背景（花びらが散るような表現） -->
+    <div class="organic-blobs" aria-hidden="true">
+      <div class="organic-blob ob-1"></div>
+      <div class="organic-blob ob-2"></div>
+      <div class="organic-blob ob-3"></div>
+      <div class="organic-blob ob-4"></div>
+      <div class="organic-blob ob-5"></div>
+      <div class="organic-blob ob-6"></div>
+      <div class="organic-blob ob-7"></div>
+      <div class="organic-blob ob-8"></div>
+    </div>
 
     <!-- ==========================================================
          Hero
@@ -140,6 +164,7 @@
       <div class="container">
         <p class="hero-eyebrow">Anemonet</p>
         <h1 id="hero-heading" class="hero-title">風を読み、本質を咲かせる。</h1>
+        <p class="hero-sub">AI駆動のシステム開発パートナー — Anemonet</p>
         <p class="hero-lead">
           変化の時代に、あなたが本当に必要とするシステムを。
         </p>
@@ -153,7 +178,7 @@
     <!-- ==========================================================
          Philosophy
          ========================================================== -->
-    <section id="philosophy" class="site-section brand-section philosophy-section" aria-labelledby="philosophy-heading">
+    <section id="philosophy" class="site-section brand-section philosophy-section section-alt" aria-labelledby="philosophy-heading">
       <div class="container">
         <div class="brand-inner">
           <div class="brand-text">
@@ -293,6 +318,40 @@
     </section>
 
     <!-- ==========================================================
+         About Us
+         ========================================================== -->
+    <section id="about" class="site-section about-section section-alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-text">
+            <p class="section-eyebrow">About Me</p>
+            <h2 id="about-heading" class="about-name">
+              山川 祐汰
+              <span class="about-name-roman">Yuta Yamakawa</span>
+            </h2>
+            <p class="about-role">Software Engineer</p>
+            <p class="about-bio">動くものを見せながら一緒に考える、が基本スタイル。AI駆動開発でスピードと品質を両立します。</p>
+            <div class="about-skills" role="list" aria-label="スキルセット">
+              <span class="skill-badge" role="listitem">TypeScript / Node.js</span>
+              <span class="skill-badge" role="listitem">C# / .NET</span>
+              <span class="skill-badge" role="listitem">Python</span>
+              <span class="skill-badge" role="listitem">Vue.js / Nuxt</span>
+              <span class="skill-badge" role="listitem">React</span>
+              <span class="skill-badge" role="listitem">AWS / Azure / Firebase</span>
+              <span class="skill-badge" role="listitem">Claude / ChatGPT / Gemini</span>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <div class="about-avatar" role="img" aria-label="山川 祐汰のプロフィール画像（準備中）">
+              <span class="about-avatar-initials" aria-hidden="true">YY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
          Services
          ========================================================== -->
     <section id="services" class="site-section" aria-labelledby="services-heading">
@@ -317,17 +376,19 @@
             </div>
           </div>
           <p class="service-desc">
-            仕様書を書き上げてから開発に入る従来型のプロセスでは、完成後に「思っていたものと違う」が起きがちです。
-            AI駆動開発では、動くシステムを起点に対話を重ねることで、要件そのものを正しく導き出します。
+            仕様書を書き上げてから開発する従来型では、完成後に「思っていたものと違う」が起きがちです。かといって要件が曖昧なままAIで高速に作り続ければ、コードは膨れ運用コストだけが増えていく。
+          </p>
+          <p class="service-desc">
+            Anemonetの提案するAI駆動開発は「作っては壊す」が前提。プロトタイプで要件の本質を見極めてから、本番品質で構築し直す。速さと堅牢さを両立します。
           </p>
 
           <div class="process-flow" role="list" aria-label="開発プロセス">
             <div class="process-step" role="listitem">
               <div class="process-step-header">
                 <span class="step-number" aria-label="ステップ1">1</span>
-                <h4 class="step-title">プロトタイプ構築</h4>
+                <h4 class="step-title">作って見せる</h4>
               </div>
-              <p class="step-text">生成AIを活用し、動作するプロトタイプをリアルタイムに構築。画面を見ながらフィードバックを即座に反映し、要件の解像度を高めます。</p>
+              <p class="step-text">AIで動くプロトタイプを即座に構築し、画面を見ながら一緒に方向性を決める。</p>
             </div>
             <div class="process-connector" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
@@ -335,9 +396,9 @@
             <div class="process-step" role="listitem">
               <div class="process-step-header">
                 <span class="step-number" aria-label="ステップ2">2</span>
-                <h4 class="step-title">スクラップ &amp; リビルド</h4>
+                <h4 class="step-title">壊して学ぶ</h4>
               </div>
-              <p class="step-text">検証で得た知見をもとに、構造をゼロから再設計。技術的負債を持ち越さず、学びを次の構築に凝縮します。</p>
+              <p class="step-text">得た知見をもとにゼロから再設計。負債を持ち越さない。</p>
             </div>
             <div class="process-connector" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
@@ -345,15 +406,15 @@
             <div class="process-step" role="listitem">
               <div class="process-step-header">
                 <span class="step-number" aria-label="ステップ3">3</span>
-                <h4 class="step-title">要件確定・本開発</h4>
+                <h4 class="step-title">本番品質で仕上げる</h4>
               </div>
-              <p class="step-text">反復を通じて確度の高い要件が定まった段階で、最適なアーキテクチャを選定し、本番品質のシステムとして開発します。</p>
+              <p class="step-text">要件が固まった段階で、堅牢なアーキテクチャで本開発。</p>
             </div>
           </div>
 
           <div class="process-cycle-note" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            <span>ステップ 1〜2 を高速に反復し、要件の精度を最大化</span>
+            <span>1〜2 を高速に反復し、要件の本質を見極める</span>
           </div>
 
           <div class="service-highlights">
@@ -429,7 +490,7 @@
     <!-- ==========================================================
          Contact
          ========================================================== -->
-    <section id="contact" class="site-section contact-section" aria-labelledby="contact-heading">
+    <section id="contact" class="site-section contact-section section-alt" aria-labelledby="contact-heading">
       <div class="container">
         <p class="section-eyebrow">Contact</p>
         <h2 id="contact-heading" class="section-heading">お問い合わせ</h2>
@@ -466,9 +527,11 @@
         </div>
         <nav class="footer-links" aria-label="フッターナビゲーション">
           <a href="#philosophy" class="footer-link">Philosophy</a>
+          <a href="#about" class="footer-link">About Me</a>
           <a href="#services" class="footer-link">Services</a>
           <a href="#contact" class="footer-link">Contact</a>
           <a href="./privacy.html" class="footer-link">プライバシーポリシー</a>
+          <a href="./legal.html" class="footer-link">特定商取引法に基づく表記</a>
         </nav>
       </div>
     </div>
@@ -480,7 +543,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Anemonet",
-    "url": "https://anemone.dev",
+    "url": "https://anemonet.dev",
     "description": "Anemonet は変化の風を読み取り、生成AI駆動開発で顧客が本当に必要とするシステムを構築します。",
     "slogan": "風を読み、本質を咲かせる。",
     "knowsAbout": ["AI駆動開発", "Claude Code", "システム開発", "Web開発"],
