@@ -16,7 +16,6 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         "design-system": resolve(__dirname, "design-system.html"),
-        legal: resolve(__dirname, "legal.html"),
         privacy: resolve(__dirname, "privacy.html"),
         "404": resolve(__dirname, "404.html"),
       },

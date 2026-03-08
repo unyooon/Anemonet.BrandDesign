@@ -1939,12 +1939,9 @@ a:focus-visible {
    About Us Section
    ============================================================ */
 
-/** About セクション — 左テキスト / 右アバターの2カラムレイアウト */
+/** About セクション */
 .about-inner {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: var(--anm-space-12);
-  align-items: center;
+  display: block;
 }
 
 /** 代表者名 */
