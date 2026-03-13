@@ -1,0 +1,1293 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Anemonet",
+  "url": "https://anemonet.dev",
+  "description": "Anemonet は変化の風を読み取り、生成AI駆動開発で顧客が本当に必要とするシステムを構築します。",
+  "slogan": "風を読み、本質を咲かせる。",
+  "knowsAbout": ["AI駆動開発", "Claude Code", "システム開発", "Web開発"],
+  "areaServed": {
+    "@type": "Country",
+    "name": "JP"
+  },
+  "serviceType": ["AI駆動開発", "Claude Code開発基盤構築"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "サービス一覧",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI駆動開発",
+          "description": "動くシステムを起点に対話を重ね、顧客が本当に必要とする要件を導き出し、最適なアーキテクチャで構築する"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Claude Code開発基盤構築",
+          "description": "開発アーキテクチャに合わせたCLAUDE.md・カスタムコマンド・Lint等のClaude Code開発基盤を整備し、開発効率向上を支援"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout
+  title="Anemonet — 風を読み、本質を咲かせる。"
+  description="AI駆動開発で「本当に必要なシステム」を高速に実現。Claude Code 開発基盤構築にも対応。まずはお気軽にご相談ください。"
+  canonicalUrl="https://anemonet.dev/"
+  ogType="website"
+  jsonLd={jsonLd}
+>
+  <Header currentPath="/" />
+
+  <!-- SVG フィルター定義（有機的ノイズ変形） -->
+  <svg class="svg-filters" aria-hidden="true" style="position:absolute;width:0;height:0">
+    <defs>
+      <filter id="organic-noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="60" />
+      </filter>
+    </defs>
+  </svg>
+
+  <main class="site-main" id="main-content">
+    <!-- 有機的 blob 背景（花びらが散るような表現） -->
+    <div class="organic-blobs" aria-hidden="true">
+      <div class="organic-blob ob-1"></div>
+      <div class="organic-blob ob-2"></div>
+      <div class="organic-blob ob-3"></div>
+      <div class="organic-blob ob-4"></div>
+      <div class="organic-blob ob-5"></div>
+      <div class="organic-blob ob-6"></div>
+      <div class="organic-blob ob-7"></div>
+      <div class="organic-blob ob-8"></div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <p class="hero-eyebrow">Anemonet</p>
+        <h1 id="hero-heading" class="hero-title">風を読み、本質を咲かせる。</h1>
+        <p class="hero-sub">AI駆動のシステム開発パートナー — Anemonet</p>
+        <p class="hero-lead">
+          変化の時代に、あなたが本当に必要とするシステムを。
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">お問い合わせ</a>
+          <a href="#services" class="btn btn-outline btn-lg">サービスを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="site-section brand-section philosophy-section section-alt" aria-labelledby="philosophy-heading">
+      <div class="container">
+        <div class="brand-inner">
+          <div class="brand-text">
+            <p class="section-eyebrow">Philosophy</p>
+            <h2 id="philosophy-heading" class="brand-heading">Anemonet とは</h2>
+            <p class="brand-desc">
+              アネモネは「風の花」。ギリシャ語で風を意味する Anemos を語源に持ち、
+              早春の風が吹くといち早く花を開きます。
+            </p>
+            <p class="brand-desc">
+              Anemonet は、その名の通り、変化の風を読み取り、いち早く動きます。
+            </p>
+            <p class="brand-desc">
+              顧客が本当に必要としているものは、最初から明確とは限りません。
+              アネモネの花びらに見える部分が実は「がく」であるように、
+              表面の要件の奥には、まだ言葉になっていない本質があります。
+            </p>
+            <p class="brand-desc">
+              私たちは、動くシステムを起点に対話を重ね、つくっては壊し、
+              その本質に辿り着きます。
+            </p>
+            <p class="brand-desc">
+              そしてアネモネの種が風に乗って広がるように、
+              一つのプロジェクトで得た知見を次へとつなぎ、
+              関わるすべての人に価値を届けます。
+            </p>
+          </div>
+
+          <div class="brand-visual" aria-hidden="true">
+            <img src="/logo-icon.png" alt="" class="brand-logo-img" width="240" height="240" />
+          </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mv-grid" role="list">
+          <div class="mv-card" role="listitem">
+            <span class="mv-label">Mission</span>
+            <p class="mv-quote">「風を読み、本質を咲かせる。」</p>
+            <p class="mv-desc">
+              変化の激しいシステム開発の世界で、時代の風を読み続け、顧客が言葉にできていない本当のニーズを引き出し、最適な形で実現する。
+            </p>
+          </div>
+          <div class="mv-card" role="listitem">
+            <span class="mv-label">Vision</span>
+            <p class="mv-quote">「技術と人をつなぎ、知見が循環するネットワークの中心であり続ける。」</p>
+            <p class="mv-desc">
+              アネモネの種が風に乗って広がるように、プロジェクトを通じて得た知見を蓄積・循環させ、関わるすべての人に価値を届ける。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section id="values" class="site-section values-section" aria-labelledby="values-heading">
+      <div class="container">
+        <p class="section-eyebrow">Values</p>
+        <h2 id="values-heading" class="section-heading">行動指針</h2>
+
+        <div class="values-grid" role="list">
+
+          <!-- 1. Wind Reading -->
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+              </svg>
+            </div>
+            <p class="value-name-en">Wind Reading</p>
+            <p class="value-name-ja">風を読む</p>
+            <p class="value-desc">技術の潮流を常に捉え、手法を更新し続ける</p>
+          </div>
+
+          <!-- 2. Root Finding -->
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <p class="value-name-en">Root Finding</p>
+            <p class="value-name-ja">根を見つける</p>
+            <p class="value-desc">表面の要件ではなく、潜在的な課題の根に辿り着く</p>
+          </div>
+
+          <!-- 3. Rebuild Courage -->
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </div>
+            <p class="value-name-en">Rebuild Courage</p>
+            <p class="value-name-ja">壊す勇気</p>
+            <p class="value-desc">うまくいかなければ壊して学び、より良く作り直す</p>
+          </div>
+
+          <!-- 4. Grow Together -->
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <p class="value-name-en">Grow Together</p>
+            <p class="value-name-ja">共に咲く</p>
+            <p class="value-desc">外注先ではなく、同じチームの一員として伴走する</p>
+          </div>
+
+          <!-- 5. Spread Seeds -->
+          <div class="value-card" role="listitem">
+            <div class="value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <p class="value-name-en">Spread Seeds</p>
+            <p class="value-name-ja">種を蒔く</p>
+            <p class="value-desc">得た知見をネットワークに還元し、共有する</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="site-section about-section section-alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-text">
+            <p class="section-eyebrow">About Me</p>
+            <h2 id="about-heading" class="about-name">
+              山川 祐汰
+              <span class="about-name-roman">Yuta Yamakawa</span>
+            </h2>
+            <p class="about-role">Software Engineer</p>
+            <p class="about-bio">動くものを見せながら一緒に考える、が基本スタイル。AI駆動開発でスピードと品質を両立します。</p>
+            <div class="about-skills" role="list" aria-label="スキルセット">
+              <span class="skill-badge" role="listitem">TypeScript / Node.js</span>
+              <span class="skill-badge" role="listitem">C# / .NET</span>
+              <span class="skill-badge" role="listitem">Python</span>
+              <span class="skill-badge" role="listitem">Vue.js / Nuxt</span>
+              <span class="skill-badge" role="listitem">React</span>
+              <span class="skill-badge" role="listitem">AWS / Azure / Firebase</span>
+              <span class="skill-badge" role="listitem">Claude / ChatGPT / Gemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="site-section" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-eyebrow">Services</p>
+        <h2 id="services-heading" class="section-heading">サービス</h2>
+        <p class="section-lead">
+          変化の風を読み、最適な技術と手法で、あなたのシステムを構築します。
+        </p>
+
+        <!-- Service 1: AI駆動開発 -->
+        <article class="service-block" aria-labelledby="service1-heading">
+          <div class="service-block-header">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="service1-heading" class="service-title">AI駆動開発</h3>
+              <p class="service-subtitle">Iterative Prototyping with AI</p>
+            </div>
+          </div>
+          <p class="service-desc">
+            仕様書を書き上げてから開発する従来型では、完成後に「思っていたものと違う」が起きがちです。かといって要件が曖昧なままAIで高速に作り続ければ、コードは膨れ運用コストだけが増えていく。
+          </p>
+          <p class="service-desc">
+            Anemonetの提案するAI駆動開発は「作っては壊す」が前提。プロトタイプで要件の本質を見極めてから、本番品質で構築し直す。速さと堅牢さを両立します。
+          </p>
+
+          <div class="process-flow" role="list" aria-label="開発プロセス">
+            <div class="process-step" role="listitem">
+              <div class="process-step-header">
+                <span class="step-number" aria-label="ステップ1">1</span>
+                <h4 class="step-title">作って見せる</h4>
+              </div>
+              <p class="step-text">AIで動くプロトタイプを即座に構築し、画面を見ながら一緒に方向性を決める。</p>
+            </div>
+            <div class="process-connector" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </div>
+            <div class="process-step" role="listitem">
+              <div class="process-step-header">
+                <span class="step-number" aria-label="ステップ2">2</span>
+                <h4 class="step-title">壊して学ぶ</h4>
+              </div>
+              <p class="step-text">得た知見をもとにゼロから再設計。負債を持ち越さない。</p>
+            </div>
+            <div class="process-connector" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </div>
+            <div class="process-step" role="listitem">
+              <div class="process-step-header">
+                <span class="step-number" aria-label="ステップ3">3</span>
+                <h4 class="step-title">本番品質で仕上げる</h4>
+              </div>
+              <p class="step-text">要件が固まった段階で、堅牢なアーキテクチャで本開発。</p>
+            </div>
+          </div>
+
+          <div class="process-cycle-note" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>1〜2 を高速に反復し、要件の本質を見極める</span>
+          </div>
+
+          <div class="service-highlights">
+            <div class="service-highlight">
+              <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <p>設計・開発から運用保守まで一気通貫で対応</p>
+            </div>
+            <div class="service-highlight">
+              <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <p>生成AIによる圧倒的なスピードで仮説検証のサイクルを短縮</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 2: Claude Code 開発基盤構築 -->
+        <article class="service-block" aria-labelledby="service2-heading">
+          <div class="service-block-header">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="service2-heading" class="service-title">Claude Code 開発基盤構築</h3>
+              <p class="service-subtitle">AI-Assisted Development Infrastructure</p>
+            </div>
+          </div>
+          <p class="service-desc">
+            Claude Code の導入を検討している開発チーム向けに、プロジェクトの技術スタックに最適化された開発基盤を設計・構築します。
+            ツールを入れるだけでは得られない、チーム全体の開発生産性を引き上げる仕組みを整えます。
+          </p>
+
+          <div class="deliverables-grid">
+            <div class="deliverable">
+              <h4 class="deliverable-title">
+                <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                CLAUDE.md 設計
+              </h4>
+              <p class="deliverable-desc">プロジェクトのアーキテクチャ・コーディング規約・ワークフローに沿った指示書を構築。AI が一貫した品質でコードを生成する土台を整備します。</p>
+            </div>
+            <div class="deliverable">
+              <h4 class="deliverable-title">
+                <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                カスタムコマンド・Lint 整備
+              </h4>
+              <p class="deliverable-desc">チーム固有のタスクを自動化するカスタムコマンド群と、AI 生成コードの品質を担保する Lint ルールを設計・実装します。</p>
+            </div>
+            <div class="deliverable">
+              <h4 class="deliverable-title">
+                <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                運用フロー最適化
+              </h4>
+              <p class="deliverable-desc">コードレビュー・テスト・デプロイを含む開発サイクル全体に Claude Code を組み込み、チームの開発体験を向上させます。</p>
+            </div>
+          </div>
+
+          <div class="service-highlights">
+            <div class="service-highlight">
+              <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <p>新規プロジェクトはもちろん、既存システムへの段階的な導入にも対応</p>
+            </div>
+            <div class="service-highlight">
+              <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <p>技術スタック・チーム規模に合わせたテーラーメイドの基盤を構築</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="site-section contact-section section-alt" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-eyebrow">Contact</p>
+        <h2 id="contact-heading" class="section-heading">お問い合わせ</h2>
+        <p class="contact-intro">
+          ご相談・ご質問など、お気軽にお問い合わせください。
+        </p>
+        <div class="contact-actions">
+          <a
+            href="https://docs.google.com/forms/d/18o60bJoYsvb_LqFg0l-HZ3Oou5Lha6e6w1b2m5nHmwU/viewform"
+            class="btn btn-primary btn-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            お問い合わせフォームを開く
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+/* ============================================================
+   Hero Section
+   ============================================================ */
+.hero-section {
+  background: transparent;
+  padding: 80px 0;
+  position: relative;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section > .container {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.hero-eyebrow {
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-accent-main);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--anm-space-4);
+}
+
+.hero-title {
+  font-size: var(--anm-text-display-size);
+  font-weight: var(--anm-font-weight-bold);
+  line-height: var(--anm-text-display-line-height);
+  color: var(--anm-color-text-heading);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--anm-space-5);
+  max-width: 720px;
+}
+
+.hero-sub {
+  font-size: var(--anm-text-base-size);
+  color: var(--anm-color-text-sub);
+  margin-bottom: var(--anm-space-3);
+}
+
+.hero-lead {
+  font-size: var(--anm-text-large-size);
+  line-height: var(--anm-text-large-line-height);
+  color: var(--anm-color-text-body);
+  max-width: 600px;
+  margin-bottom: var(--anm-space-8);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--anm-space-3);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Organic Blobs
+   ============================================================ */
+.organic-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.organic-blob {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, border-radius;
+}
+
+.ob-1 {
+  width: 500px;
+  height: 350px;
+  top: 2%;
+  right: -5%;
+  background: var(--anm-color-primary-200);
+  opacity: 0.55;
+  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+  filter: blur(50px);
+  animation: ob-morph-1 20s ease-in-out infinite, ob-drift-1 25s ease-in-out infinite;
+}
+
+.ob-2 {
+  width: 600px;
+  height: 80px;
+  top: 12%;
+  left: -10%;
+  background: linear-gradient(90deg, transparent 0%, var(--anm-color-primary-300) 30%, rgba(192, 56, 138, 0.5) 70%, transparent 100%);
+  opacity: 0.5;
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: ob-drift-2 30s ease-in-out infinite;
+}
+
+.ob-3 {
+  width: 400px;
+  height: 300px;
+  top: 25%;
+  left: 60%;
+  background: rgba(192, 56, 138, 0.4);
+  opacity: 0.45;
+  border-radius: 44% 56% 65% 35% / 57% 38% 62% 43%;
+  filter: blur(55px);
+  animation: ob-morph-2 18s ease-in-out infinite, ob-drift-3 22s ease-in-out infinite;
+}
+
+.ob-4 {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 15%;
+  background: var(--anm-color-primary-400);
+  opacity: 0.35;
+  border-radius: 30% 70% 53% 47% / 52% 35% 65% 48%;
+  filter: blur(40px);
+  animation: ob-morph-3 15s ease-in-out infinite, ob-drift-4 20s ease-in-out infinite;
+}
+
+.ob-5 {
+  width: 700px;
+  height: 120px;
+  top: 42%;
+  right: -5%;
+  background: linear-gradient(135deg, var(--anm-color-primary-200) 0%, rgba(192, 56, 138, 0.3) 50%, transparent 100%);
+  opacity: 0.5;
+  border-radius: 40% 60% 55% 45% / 70% 30% 70% 30%;
+  filter: blur(35px);
+  animation: ob-drift-5 28s ease-in-out infinite;
+}
+
+.ob-6 {
+  width: 450px;
+  height: 350px;
+  top: 55%;
+  left: -8%;
+  background: rgba(92, 56, 192, 0.35);
+  opacity: 0.5;
+  border-radius: 58% 42% 37% 63% / 45% 62% 38% 55%;
+  filter: blur(50px);
+  animation: ob-morph-4 22s ease-in-out infinite, ob-drift-6 26s ease-in-out infinite;
+}
+
+.ob-7 {
+  width: 550px;
+  height: 60px;
+  top: 70%;
+  left: 30%;
+  background: linear-gradient(90deg, transparent, var(--anm-color-primary-300), rgba(192, 56, 138, 0.4), transparent);
+  opacity: 0.45;
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: ob-drift-7 24s ease-in-out infinite;
+}
+
+.ob-8 {
+  width: 500px;
+  height: 400px;
+  top: 82%;
+  right: 10%;
+  background: var(--anm-color-primary-100);
+  opacity: 0.55;
+  border-radius: 52% 48% 33% 67% / 63% 41% 59% 37%;
+  filter: blur(55px);
+  animation: ob-morph-5 20s ease-in-out infinite, ob-drift-8 30s ease-in-out infinite;
+}
+
+@keyframes ob-morph-1 {
+  0%,   100% { border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%; }
+  25%         { border-radius: 45% 55% 62% 38% / 53% 47% 38% 62%; }
+  50%         { border-radius: 55% 45% 35% 65% / 40% 60% 52% 48%; }
+  75%         { border-radius: 38% 62% 55% 45% / 65% 35% 45% 55%; }
+}
+
+@keyframes ob-morph-2 {
+  0%,   100% { border-radius: 44% 56% 65% 35% / 57% 38% 62% 43%; }
+  30%         { border-radius: 60% 40% 42% 58% / 35% 65% 48% 52%; }
+  60%         { border-radius: 35% 65% 58% 42% / 60% 40% 55% 45%; }
+}
+
+@keyframes ob-morph-3 {
+  0%,   100% { border-radius: 30% 70% 53% 47% / 52% 35% 65% 48%; }
+  40%         { border-radius: 60% 40% 38% 62% / 45% 55% 38% 62%; }
+  70%         { border-radius: 48% 52% 65% 35% / 62% 38% 52% 48%; }
+}
+
+@keyframes ob-morph-4 {
+  0%,   100% { border-radius: 58% 42% 37% 63% / 45% 62% 38% 55%; }
+  35%         { border-radius: 42% 58% 60% 40% / 65% 35% 55% 45%; }
+  65%         { border-radius: 65% 35% 45% 55% / 38% 62% 42% 58%; }
+}
+
+@keyframes ob-morph-5 {
+  0%,   100% { border-radius: 52% 48% 33% 67% / 63% 41% 59% 37%; }
+  30%         { border-radius: 38% 62% 55% 45% / 48% 52% 35% 65%; }
+  60%         { border-radius: 65% 35% 48% 52% / 35% 65% 60% 40%; }
+}
+
+@keyframes ob-drift-1 {
+  0%,   100% { transform: translate(0, 0); }
+  33%         { transform: translate(40px, -30px); }
+  66%         { transform: translate(-20px, 40px); }
+}
+
+@keyframes ob-drift-2 {
+  0%,   100% { transform: rotate(-15deg) translate(0, 0); }
+  33%         { transform: rotate(-15deg) translate(-50px, 20px); }
+  66%         { transform: rotate(-15deg) translate(30px, -15px); }
+}
+
+@keyframes ob-drift-3 {
+  0%,   100% { transform: translate(0, 0); }
+  40%         { transform: translate(-30px, 50px); }
+  70%         { transform: translate(45px, -20px); }
+}
+
+@keyframes ob-drift-4 {
+  0%,   100% { transform: translate(0, 0); }
+  50%         { transform: translate(30px, -40px); }
+}
+
+@keyframes ob-drift-5 {
+  0%,   100% { transform: rotate(20deg) translate(0, 0); }
+  33%         { transform: rotate(20deg) translate(-40px, 15px); }
+  66%         { transform: rotate(20deg) translate(25px, -30px); }
+}
+
+@keyframes ob-drift-6 {
+  0%,   100% { transform: translate(0, 0); }
+  30%         { transform: translate(50px, -25px); }
+  70%         { transform: translate(-35px, 45px); }
+}
+
+@keyframes ob-drift-7 {
+  0%,   100% { transform: rotate(-8deg) translate(0, 0); }
+  40%         { transform: rotate(-8deg) translate(40px, -10px); }
+  75%         { transform: rotate(-8deg) translate(-30px, 20px); }
+}
+
+@keyframes ob-drift-8 {
+  0%,   100% { transform: translate(0, 0); }
+  33%         { transform: translate(-30px, -40px); }
+  66%         { transform: translate(50px, 30px); }
+}
+
+[data-theme="dark"] .ob-1 { background: var(--anm-color-primary-800); opacity: 0.3; }
+[data-theme="dark"] .ob-2 { background: linear-gradient(90deg, transparent, var(--anm-color-primary-700), rgba(192, 56, 138, 0.4), transparent); opacity: 0.25; }
+[data-theme="dark"] .ob-3 { background: rgba(192, 56, 138, 0.4); opacity: 0.2; }
+[data-theme="dark"] .ob-4 { background: var(--anm-color-primary-700); opacity: 0.18; }
+[data-theme="dark"] .ob-5 { background: linear-gradient(135deg, var(--anm-color-primary-800) 0%, rgba(192, 56, 138, 0.3) 50%, transparent 100%); opacity: 0.25; }
+[data-theme="dark"] .ob-6 { background: rgba(92, 56, 192, 0.45); opacity: 0.3; }
+[data-theme="dark"] .ob-7 { background: linear-gradient(90deg, transparent, var(--anm-color-primary-700), rgba(192, 56, 138, 0.35), transparent); opacity: 0.2; }
+[data-theme="dark"] .ob-8 { background: var(--anm-color-primary-900); opacity: 0.35; }
+
+@media (max-width: 768px) {
+  .ob-1 { width: 300px; height: 210px; filter: blur(35px); }
+  .ob-2 { width: 360px; height: 48px; filter: blur(22px); }
+  .ob-3 { width: 240px; height: 180px; filter: blur(38px); }
+  .ob-4 { display: none; }
+  .ob-5 { width: 420px; height: 72px; filter: blur(25px); }
+  .ob-6 { width: 270px; height: 210px; filter: blur(35px); }
+  .ob-7 { display: none; }
+  .ob-8 { width: 300px; height: 240px; filter: blur(38px); }
+}
+
+@media (max-width: 480px) {
+  .ob-1 { width: 200px; height: 140px; filter: blur(28px); }
+  .ob-2 { display: none; }
+  .ob-3 { width: 160px; height: 120px; filter: blur(28px); }
+  .ob-5 { display: none; }
+  .ob-6 { width: 180px; height: 140px; filter: blur(28px); }
+  .ob-8 { width: 200px; height: 160px; filter: blur(32px); }
+}
+
+/* ============================================================
+   Brand / Philosophy Section
+   ============================================================ */
+.brand-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--anm-space-12);
+  align-items: center;
+}
+
+.brand-heading {
+  font-size: var(--anm-text-h2-size);
+  font-weight: var(--anm-font-weight-semibold);
+  line-height: var(--anm-text-h2-line-height);
+  color: var(--anm-color-text-heading);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--anm-space-5);
+}
+
+.brand-desc {
+  font-size: var(--anm-text-base-size);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+  margin-bottom: var(--anm-space-5);
+}
+
+.brand-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-img {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .brand-logo-img {
+  filter: invert(1);
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--anm-space-5);
+  margin-top: var(--anm-space-8);
+}
+
+.mv-card {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--anm-color-border-default);
+  border-radius: var(--anm-radius-lg);
+  padding: var(--anm-space-6);
+  border-top: 3px solid var(--anm-color-action-primary-default);
+  transition:
+    background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
+    border-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .mv-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .mv-card {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .mv-card {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.mv-label {
+  display: inline-block;
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-action-primary-default);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--anm-space-3);
+}
+
+.mv-quote {
+  font-size: var(--anm-text-base-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  line-height: 1.5;
+  margin-bottom: var(--anm-space-3);
+}
+
+.mv-desc {
+  font-size: var(--anm-text-small-size);
+  line-height: 1.65;
+  color: var(--anm-color-text-sub);
+}
+
+/* ============================================================
+   Values Section
+   ============================================================ */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--anm-space-5);
+  margin-top: var(--anm-space-8);
+}
+
+.value-card {
+  grid-column: span 2;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--anm-color-border-subtle);
+  border-radius: var(--anm-radius-lg);
+  padding: var(--anm-space-6) var(--anm-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--anm-space-2);
+  transition:
+    background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
+    border-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default),
+    box-shadow var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .value-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .value-card {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .value-card {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.value-card:nth-child(4) { grid-column: 2 / 4; }
+.value-card:nth-child(5) { grid-column: 4 / 6; }
+
+.value-card:hover {
+  border-color: var(--anm-color-action-primary-default);
+  box-shadow: var(--anm-shadow-md);
+}
+
+.value-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--anm-radius-md);
+  background-color: var(--anm-color-action-primary-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--anm-color-action-primary-default);
+  margin-bottom: var(--anm-space-2);
+  flex-shrink: 0;
+}
+
+.value-name-en {
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  line-height: 1.3;
+}
+
+.value-name-ja {
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-accent-main);
+  letter-spacing: 0.04em;
+}
+
+.value-desc {
+  font-size: var(--anm-text-small-size);
+  line-height: 1.65;
+  color: var(--anm-color-text-sub);
+  margin-top: var(--anm-space-1);
+}
+
+/* ============================================================
+   About Section
+   ============================================================ */
+.about-inner {
+  display: block;
+}
+
+.about-name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--anm-space-3);
+  font-size: var(--anm-text-h2-size);
+  font-weight: var(--anm-font-weight-bold);
+  color: var(--anm-color-text-heading);
+  line-height: var(--anm-text-h2-line-height);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--anm-space-2);
+  flex-wrap: wrap;
+}
+
+.about-name-roman {
+  font-size: var(--anm-text-base-size);
+  font-weight: var(--anm-font-weight-regular);
+  color: var(--anm-color-text-sub);
+  letter-spacing: 0.02em;
+}
+
+.about-role {
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-accent-main);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--anm-space-3);
+}
+
+.about-bio {
+  font-size: var(--anm-text-base-size);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+  max-width: 560px;
+  margin-bottom: var(--anm-space-6);
+}
+
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--anm-space-2);
+}
+
+.skill-badge {
+  display: inline-block;
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-action-primary-default);
+  background-color: var(--anm-color-action-primary-subtle);
+  border: 1px solid transparent;
+  border-radius: var(--anm-radius-full);
+  padding: var(--anm-space-1) var(--anm-space-3);
+  letter-spacing: 0.02em;
+}
+
+.skill-badge:hover {
+  border-color: var(--anm-color-action-primary-default);
+}
+
+/* ============================================================
+   Services Section
+   ============================================================ */
+.service-block {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--anm-color-border-subtle);
+  border-radius: var(--anm-radius-xl);
+  padding: var(--anm-space-10);
+  margin-top: var(--anm-space-8);
+  box-shadow: var(--anm-shadow-sm);
+  transition:
+    background-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default),
+    border-color var(--anm-transition-duration-slow) var(--anm-transition-easing-default);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .service-block {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+[data-theme="dark"] .service-block {
+  background-color: rgba(20, 18, 30, 0.75);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .service-block {
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.service-block-header {
+  display: flex;
+  align-items: center;
+  gap: var(--anm-space-4);
+  margin-bottom: var(--anm-space-5);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--anm-radius-lg);
+  background-color: var(--anm-color-action-primary-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--anm-color-action-primary-default);
+}
+
+.service-title {
+  font-size: var(--anm-text-h3-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  line-height: var(--anm-text-h3-line-height);
+}
+
+.service-subtitle {
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-text-sub);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.service-desc {
+  font-size: var(--anm-text-base-size);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+  max-width: 720px;
+  margin-bottom: var(--anm-space-8);
+}
+
+.process-flow {
+  display: flex;
+  gap: var(--anm-space-4);
+  align-items: flex-start;
+  margin-bottom: var(--anm-space-6);
+}
+
+.process-step {
+  flex: 1;
+  background-color: rgba(248, 246, 255, 0.85);
+  border: 1px solid var(--anm-color-border-subtle);
+  border-radius: var(--anm-radius-lg);
+  padding: var(--anm-space-5);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .process-step {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .process-step { background-color: rgba(18, 15, 28, 0.85); }
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .process-step {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.process-step:hover {
+  border-color: var(--anm-color-action-primary-default);
+}
+
+.process-step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--anm-space-3);
+  margin-bottom: var(--anm-space-3);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--anm-radius-full);
+  background-color: var(--anm-color-action-primary-default);
+  color: #fff;
+  font-size: var(--anm-text-xxsmall-size);
+  font-weight: var(--anm-font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-title {
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  line-height: 1.3;
+}
+
+.step-text {
+  font-size: var(--anm-text-small-size);
+  line-height: 1.65;
+  color: var(--anm-color-text-body);
+}
+
+.process-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--anm-color-border-default);
+  padding-top: var(--anm-space-5);
+}
+
+.process-connector svg {
+  width: 20px;
+  height: 20px;
+  transform: rotate(-90deg);
+}
+
+.process-cycle-note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--anm-space-2);
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-medium);
+  color: var(--anm-color-text-sub);
+  background-color: rgba(248, 246, 255, 0.85);
+  border: 1px solid var(--anm-color-border-default);
+  border-radius: var(--anm-radius-full);
+  padding: var(--anm-space-2) var(--anm-space-4);
+  margin-bottom: var(--anm-space-6);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .process-cycle-note {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .process-cycle-note { background-color: rgba(18, 15, 28, 0.85); }
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .process-cycle-note {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.process-cycle-note svg {
+  flex-shrink: 0;
+  color: var(--anm-color-action-primary-default);
+}
+
+.service-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--anm-space-3);
+  padding-top: var(--anm-space-5);
+  border-top: 1px solid var(--anm-color-border-subtle);
+}
+
+.service-highlight {
+  display: flex;
+  gap: var(--anm-space-3);
+  align-items: flex-start;
+}
+
+.highlight-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--anm-color-action-primary-default);
+  margin-top: 2px;
+}
+
+.service-highlight p {
+  font-size: var(--anm-text-small-size);
+  line-height: 1.6;
+  color: var(--anm-color-text-sub);
+}
+
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--anm-space-5);
+  margin-bottom: var(--anm-space-8);
+}
+
+.deliverable {
+  background-color: rgba(248, 246, 255, 0.85);
+  border: 1px solid var(--anm-color-border-subtle);
+  border-radius: var(--anm-radius-lg);
+  padding: var(--anm-space-5);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .deliverable {
+    background: rgba(248, 246, 255, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+[data-theme="dark"] .deliverable { background-color: rgba(18, 15, 28, 0.85); }
+
+@supports (backdrop-filter: blur(1px)) {
+  [data-theme="dark"] .deliverable {
+    background: rgba(18, 15, 28, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.deliverable:hover {
+  border-color: var(--anm-color-action-primary-default);
+}
+
+.deliverable-title {
+  display: flex;
+  align-items: center;
+  gap: var(--anm-space-2);
+  font-size: var(--anm-text-small-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  margin-bottom: var(--anm-space-3);
+}
+
+.deliverable-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--anm-color-action-primary-default);
+}
+
+.deliverable-desc {
+  font-size: var(--anm-text-small-size);
+  line-height: 1.65;
+  color: var(--anm-color-text-body);
+}
+
+/* ============================================================
+   Contact Section
+   ============================================================ */
+.contact-intro {
+  font-size: var(--anm-text-base-size);
+  color: var(--anm-color-text-body);
+  margin-bottom: var(--anm-space-6);
+}
+
+.contact-actions {
+  margin-top: var(--anm-space-6);
+  text-align: center;
+}
+
+/* ============================================================
+   Responsive — 768px
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-section { padding: 64px 0; }
+  .hero-title { font-size: var(--anm-text-h1-size); }
+
+  .brand-inner { grid-template-columns: 1fr; gap: var(--anm-space-8); }
+  .brand-visual { order: -1; }
+  .brand-logo-img { width: 180px; height: 180px; }
+  .brand-desc { font-size: var(--anm-text-small-size); }
+
+  .mv-grid { grid-template-columns: 1fr; }
+
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .value-card { grid-column: span 1; }
+  .value-card:nth-child(4) { grid-column: span 1; }
+  .value-card:nth-child(5) { grid-column: 1 / -1; }
+
+  .process-flow { flex-direction: column; }
+  .process-connector svg { transform: rotate(0); }
+  .deliverables-grid { grid-template-columns: 1fr; }
+  .service-block { padding: var(--anm-space-6); }
+}
+
+/* ============================================================
+   Responsive — 480px
+   ============================================================ */
+@media (max-width: 480px) {
+  .hero-title { font-size: var(--anm-text-h2-size); letter-spacing: -0.02em; }
+  .hero-lead { font-size: var(--anm-text-base-size); }
+  .hero-actions { flex-direction: column; }
+  .section-heading { font-size: var(--anm-text-h2-size); }
+  .service-block { padding: var(--anm-space-5); }
+  .service-block-header { flex-direction: column; align-items: flex-start; gap: var(--anm-space-3); }
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card, .value-card:nth-child(4), .value-card:nth-child(5) { grid-column: span 1; }
+  .about-name { font-size: var(--anm-text-h3-size); }
+}
+</style>

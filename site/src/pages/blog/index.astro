@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import "../../styles/blog.css";
+
+/**
+ * @description ブログ記事一覧ページ（1ページ目）
+ * - 下書き以外の全記事を公開日降順で取得して表示する
+ */
+
+const POSTS_PER_PAGE = 10;
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+
+const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+const posts = sortedPosts.slice(0, POSTS_PER_PAGE);
+---
+
+<BaseLayout
+  title="ブログ — Anemonet"
+  description="Anemonet のブログ。AI駆動開発、システム設計、技術トピックなどを発信します。"
+>
+  <Header currentPath="/blog/" />
+
+  <main class="site-main" id="main-content">
+    <div class="blog-page">
+      <div class="container">
+        <header class="blog-page-header">
+          <h1 class="blog-page-title">Blog</h1>
+          <p class="blog-page-lead">
+            AI駆動開発、システム設計、技術トピックなどを発信します。
+          </p>
+        </header>
+
+        {posts.length > 0 ? (
+          <div class="blog-list">
+            {posts.map(post => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                publishedAt={post.data.publishedAt}
+                tags={post.data.tags}
+                slug={post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>記事はまだありません。</p>
+        )}
+
+        <Pagination
+          currentPage={1}
+          totalPages={totalPages}
+          baseUrl="/blog"
+        />
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

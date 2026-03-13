@@ -1,0 +1,161 @@
+---
+/**
+ * @description ページネーションコンポーネント
+ * - 前後ページリンクとページ番号を表示する
+ * - 現在のページには aria-current="page" を付与する
+ */
+
+type Props = {
+  /** 現在のページ番号（1始まり） */
+  currentPage: number;
+  /** 総ページ数 */
+  totalPages: number;
+  /** ページ URL のベースパス（例: "/blog"） */
+  baseUrl: string;
+};
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+/**
+ * @description 指定ページの URL を生成する
+ * @param page - ページ番号
+ * @returns ページ URL
+ */
+function pageUrl(page: number): string {
+  if (page === 1) return `${baseUrl}/`;
+  return `${baseUrl}/${page}/`;
+}
+
+/** 表示するページ番号の範囲を計算する */
+const pages: number[] = [];
+const delta = 2;
+const left = Math.max(1, currentPage - delta);
+const right = Math.min(totalPages, currentPage + delta);
+
+for (let i = left; i <= right; i++) {
+  pages.push(i);
+}
+---
+
+{totalPages > 1 && (
+  <nav class="pagination" aria-label="ページネーション">
+    <!-- 前のページ -->
+    {currentPage > 1 ? (
+      <a
+        href={pageUrl(currentPage - 1)}
+        class="pagination-item"
+        aria-label="前のページ"
+        rel="prev"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </a>
+    ) : (
+      <span class="pagination-item" aria-disabled="true" aria-label="前のページ（なし）">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </span>
+    )}
+
+    <!-- 先頭ページ（省略がある場合） -->
+    {left > 1 && (
+      <>
+        <a href={pageUrl(1)} class="pagination-item" aria-label="1ページ目">1</a>
+        {left > 2 && <span class="pagination-ellipsis" aria-hidden="true">&hellip;</span>}
+      </>
+    )}
+
+    <!-- ページ番号 -->
+    {pages.map(page => (
+      page === currentPage ? (
+        <span
+          class="pagination-item"
+          aria-current="page"
+          aria-label={`${page}ページ目（現在のページ）`}
+        >
+          {page}
+        </span>
+      ) : (
+        <a
+          href={pageUrl(page)}
+          class="pagination-item"
+          aria-label={`${page}ページ目`}
+        >
+          {page}
+        </a>
+      )
+    ))}
+
+    <!-- 末尾ページ（省略がある場合） -->
+    {right < totalPages && (
+      <>
+        {right < totalPages - 1 && <span class="pagination-ellipsis" aria-hidden="true">&hellip;</span>}
+        <a href={pageUrl(totalPages)} class="pagination-item" aria-label={`${totalPages}ページ目`}>
+          {totalPages}
+        </a>
+      </>
+    )}
+
+    <!-- 次のページ -->
+    {currentPage < totalPages ? (
+      <a
+        href={pageUrl(currentPage + 1)}
+        class="pagination-item"
+        aria-label="次のページ"
+        rel="next"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+    ) : (
+      <span class="pagination-item" aria-disabled="true" aria-label="次のページ（なし）">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </span>
+    )}
+  </nav>
+)}

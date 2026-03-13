@@ -1,0 +1,290 @@
+/**
+ * Anemonet — Prose styles for Markdown rendering
+ * Applied via .prose class wrapping article content.
+ * All values from --anm-* tokens.
+ */
+
+.prose {
+  font-size: var(--anm-text-base-size);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+  max-width: 720px;
+}
+
+/* ============================================================
+   Headings
+   ============================================================ */
+.prose h1 {
+  font-size: var(--anm-text-h1-size);
+  font-weight: var(--anm-font-weight-bold);
+  line-height: var(--anm-text-h1-line-height);
+  color: var(--anm-color-text-heading);
+  letter-spacing: -0.02em;
+  margin-top: var(--anm-space-12);
+  margin-bottom: var(--anm-space-5);
+}
+
+.prose h2 {
+  font-size: var(--anm-text-h2-size);
+  font-weight: var(--anm-font-weight-semibold);
+  line-height: var(--anm-text-h2-line-height);
+  color: var(--anm-color-text-heading);
+  letter-spacing: -0.02em;
+  margin-top: var(--anm-space-10);
+  margin-bottom: var(--anm-space-4);
+  padding-bottom: var(--anm-space-2);
+  border-bottom: 1px solid var(--anm-color-border-subtle);
+}
+
+.prose h3 {
+  font-size: var(--anm-text-h3-size);
+  font-weight: var(--anm-font-weight-semibold);
+  line-height: var(--anm-text-h3-line-height);
+  color: var(--anm-color-text-heading);
+  letter-spacing: -0.01em;
+  margin-top: var(--anm-space-8);
+  margin-bottom: var(--anm-space-3);
+}
+
+.prose h4 {
+  font-size: var(--anm-text-large-size);
+  font-weight: var(--anm-font-weight-semibold);
+  line-height: var(--anm-text-large-line-height);
+  color: var(--anm-color-text-heading);
+  margin-top: var(--anm-space-6);
+  margin-bottom: var(--anm-space-3);
+}
+
+.prose h5,
+.prose h6 {
+  font-size: var(--anm-text-base-size);
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  margin-top: var(--anm-space-5);
+  margin-bottom: var(--anm-space-2);
+}
+
+.prose h1:first-child,
+.prose h2:first-child,
+.prose h3:first-child {
+  margin-top: 0;
+}
+
+/* ============================================================
+   Paragraph
+   ============================================================ */
+.prose p {
+  margin-bottom: var(--anm-space-5);
+  color: var(--anm-color-text-body);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Lists
+   ============================================================ */
+.prose ul,
+.prose ol {
+  margin-bottom: var(--anm-space-5);
+  padding-left: var(--anm-space-6);
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-bottom: var(--anm-space-2);
+  line-height: var(--anm-text-base-line-height);
+  color: var(--anm-color-text-body);
+}
+
+.prose li:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: var(--anm-space-2);
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Blockquote
+   ============================================================ */
+.prose blockquote {
+  border-left: 4px solid var(--anm-color-action-primary-default);
+  background-color: var(--anm-color-action-primary-subtle);
+  margin: var(--anm-space-6) 0;
+  padding: var(--anm-space-4) var(--anm-space-5);
+  border-radius: 0 var(--anm-radius-md) var(--anm-radius-md) 0;
+}
+
+.prose blockquote p {
+  color: var(--anm-color-text-body);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Inline code
+   ============================================================ */
+.prose code {
+  font-family: var(--anm-font-family-mono);
+  font-size: 0.875em;
+  font-feature-settings: "liga" 0;
+  background-color: var(--anm-color-bg-section);
+  color: var(--anm-color-action-primary-press);
+  padding: 0.15em 0.4em;
+  border-radius: var(--anm-radius-sm);
+  border: 1px solid var(--anm-color-border-subtle);
+}
+
+/* ============================================================
+   Code block (pre)
+   ============================================================ */
+.prose pre {
+  font-family: var(--anm-font-family-mono);
+  font-size: var(--anm-text-small-size);
+  font-feature-settings: "liga" 0;
+  background-color: var(--anm-color-neutral-950);
+  color: var(--anm-color-neutral-100);
+  padding: var(--anm-space-5) var(--anm-space-6);
+  border-radius: var(--anm-radius-lg);
+  overflow-x: auto;
+  margin: var(--anm-space-6) 0;
+  line-height: 1.7;
+  border: 1px solid var(--anm-color-neutral-800);
+}
+
+.prose pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* ============================================================
+   Images
+   ============================================================ */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--anm-radius-lg);
+  margin: var(--anm-space-6) 0;
+  box-shadow: var(--anm-shadow-md);
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
+.prose a {
+  color: var(--anm-color-action-primary-default);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--anm-color-primary-300);
+  transition:
+    color var(--anm-transition-duration-normal) var(--anm-transition-easing-default),
+    text-decoration-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+.prose a:hover {
+  color: var(--anm-color-action-primary-hover);
+  text-decoration-color: var(--anm-color-action-primary-hover);
+}
+
+.prose a:focus-visible {
+  outline: 2px solid var(--anm-color-action-primary-default);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--anm-text-small-size);
+  margin: var(--anm-space-6) 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.prose thead {
+  background-color: var(--anm-color-bg-section);
+}
+
+.prose th {
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+  padding: var(--anm-space-3) var(--anm-space-4);
+  text-align: left;
+  border-bottom: 2px solid var(--anm-color-border-default);
+  white-space: nowrap;
+}
+
+.prose td {
+  padding: var(--anm-space-3) var(--anm-space-4);
+  border-bottom: 1px solid var(--anm-color-border-subtle);
+  color: var(--anm-color-text-body);
+  vertical-align: top;
+}
+
+.prose tbody tr:hover td {
+  background-color: var(--anm-color-action-primary-subtle);
+  transition: background-color var(--anm-transition-duration-normal) var(--anm-transition-easing-default);
+}
+
+/* ============================================================
+   Horizontal Rule
+   ============================================================ */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--anm-color-border-default);
+  margin: var(--anm-space-10) 0;
+}
+
+/* ============================================================
+   Strong / Em
+   ============================================================ */
+.prose strong {
+  font-weight: var(--anm-font-weight-semibold);
+  color: var(--anm-color-text-heading);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  .prose {
+    font-size: var(--anm-text-base-size);
+  }
+
+  .prose h1 {
+    font-size: var(--anm-text-h2-size);
+  }
+
+  .prose h2 {
+    font-size: var(--anm-text-h3-size);
+  }
+
+  .prose pre {
+    padding: var(--anm-space-4);
+    font-size: var(--anm-text-xxsmall-size);
+  }
+}

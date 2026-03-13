@@ -1,0 +1,199 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/prose.css";
+import "../styles/blog.css";
+
+/**
+ * @description ブログ記事専用レイアウトコンポーネント
+ * - BaseLayout でラップし、記事ヘッダー・パンくずリスト・prose ラッパーを提供する
+ * - BlogPosting と BreadcrumbList の JSON-LD を生成する
+ */
+
+type Props = {
+  /** 記事タイトル */
+  title: string;
+  /** 記事の説明文 */
+  description: string;
+  /** 公開日 */
+  publishedAt: Date;
+  /** 最終更新日（省略可） */
+  updatedAt?: Date;
+  /** タグ一覧 */
+  tags: string[];
+  /** OGP 画像 URL（省略可） */
+  ogImage?: string;
+  /** 記事の slug */
+  slug: string;
+};
+
+const { title, description, publishedAt, updatedAt, tags, ogImage, slug } = Astro.props;
+
+const siteUrl = "https://anemonet.dev";
+const articleUrl = `${siteUrl}/blog/${slug}/`;
+
+/**
+ * @description Date を "YYYY年MM月DD日" 形式にフォーマットする
+ * @param date - フォーマットする日付
+ * @returns フォーマットされた日付文字列
+ */
+function formatDate(date: Date): string {
+  return date.toLocaleDateString("ja-JP", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+}
+
+/** BlogPosting JSON-LD */
+const blogPostingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: description,
+  datePublished: publishedAt.toISOString(),
+  ...(updatedAt ? { dateModified: updatedAt.toISOString() } : { dateModified: publishedAt.toISOString() }),
+  url: articleUrl,
+  author: {
+    "@type": "Person",
+    name: "山川祐汰",
+    url: `${siteUrl}/#about`
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Anemonet",
+    url: siteUrl
+  },
+  ...(ogImage ? { image: ogImage } : {})
+};
+
+/** BreadcrumbList JSON-LD */
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "ホーム",
+      item: siteUrl
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "ブログ",
+      item: `${siteUrl}/blog/`
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: title,
+      item: articleUrl
+    }
+  ]
+};
+
+/** 複数の JSON-LD をまとめたグラフ */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [blogPostingJsonLd, breadcrumbJsonLd]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl={articleUrl}
+  ogType="article"
+  ogImage={ogImage}
+  jsonLd={jsonLd}
+>
+  <Header currentPath={`/blog/${slug}/`} />
+
+  <main class="site-main" id="main-content">
+    <div class="blog-article">
+      <div class="container">
+        <!-- パンくずリスト -->
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <span class="breadcrumb-item">
+            <a href="/" class="breadcrumb-link">ホーム</a>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          </span>
+          <span class="breadcrumb-item">
+            <a href="/blog/" class="breadcrumb-link">ブログ</a>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          </span>
+          <span class="breadcrumb-current" aria-current="page">{title}</span>
+        </nav>
+
+        <!-- 記事ヘッダー -->
+        <header class="blog-header">
+          <h1 class="blog-title">{title}</h1>
+
+          <div class="blog-header-meta">
+            <!-- 公開日 -->
+            <div class="blog-meta">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <time datetime={publishedAt.toISOString()}>
+                {formatDate(publishedAt)}
+              </time>
+            </div>
+
+            <!-- 更新日（あれば表示） -->
+            {updatedAt && (
+              <div class="blog-meta-updated">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="23 4 23 10 17 10"/>
+                  <polyline points="1 20 1 14 7 14"/>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+                <span>更新:</span>
+                <time datetime={updatedAt.toISOString()}>
+                  {formatDate(updatedAt)}
+                </time>
+              </div>
+            )}
+
+            <!-- タグ -->
+            {tags.length > 0 && (
+              <div class="blog-header-tags">
+                {tags.map(tag => (
+                  <span class="tag-badge">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </header>
+
+        <!-- 記事本文 -->
+        <article class="prose">
+          <slot />
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

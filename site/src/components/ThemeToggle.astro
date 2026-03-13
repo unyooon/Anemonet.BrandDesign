@@ -1,0 +1,104 @@
+---
+/**
+ * @description テーマ切替ボタンコンポーネント
+ * - Sun/Moon SVG アイコンを表示
+ * - クリックでライト/ダークテーマを切り替える
+ * - localStorage に保存し、OS テーマにも追従する
+ */
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="ダークモードに切替"
+  data-theme-current="light"
+>
+  <!-- Sun icon (shown in dark mode) -->
+  <svg
+    class="theme-icon icon-sun"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <!-- Moon icon (shown in light mode) -->
+  <svg
+    class="theme-icon icon-moon"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = "anm-theme";
+
+    /**
+     * テーマを適用して localStorage に保存する
+     * @param {string} mode - "light" | "dark"
+     */
+    function applyTheme(mode) {
+      document.documentElement.setAttribute("data-theme", mode);
+      localStorage.setItem(STORAGE_KEY, mode);
+      var toggle = document.getElementById("theme-toggle");
+      if (toggle) {
+        toggle.setAttribute(
+          "aria-label",
+          mode === "dark" ? "ライトモードに切替" : "ダークモードに切替"
+        );
+        toggle.setAttribute("data-theme-current", mode);
+      }
+    }
+
+    // ボタンクリックでテーマ切替
+    var toggle = document.getElementById("theme-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var current = document.documentElement.getAttribute("data-theme");
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+    }
+
+    // OS テーマ変更の追従（ユーザーが明示的に選択していない場合のみ）
+    if (window.matchMedia) {
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", function (e) {
+          if (!localStorage.getItem(STORAGE_KEY)) {
+            applyTheme(e.matches ? "dark" : "light");
+          }
+        });
+    }
+
+    // 初期状態のボタンラベルを現在テーマに合わせて更新
+    var currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+    if (toggle) {
+      toggle.setAttribute(
+        "aria-label",
+        currentTheme === "dark" ? "ライトモードに切替" : "ダークモードに切替"
+      );
+      toggle.setAttribute("data-theme-current", currentTheme);
+    }
+  })();
+</script>

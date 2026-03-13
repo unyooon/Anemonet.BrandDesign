@@ -1,0 +1,203 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+
+/**
+ * @description サイトヘッダーコンポーネント
+ * - ロゴ、デスクトップナビゲーション、モバイルメニュー、テーマトグルを含む
+ * - currentPath によってアクティブリンクをハイライトする
+ */
+
+type Props = {
+  /** 現在のページパス（アクティブリンクのハイライト用） */
+  currentPath?: string;
+};
+
+const { currentPath = "/" } = Astro.props;
+
+/** ページ内アンカーリンク */
+const anchorLinks = [
+  { label: "Philosophy", href: "/#philosophy" },
+  { label: "About Me", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Contact", href: "/#contact" }
+];
+
+/** ページ遷移リンク */
+const pageLinks = [
+  { label: "Blog", href: "/blog/" }
+];
+
+/** 全ナビリンク（モバイルメニュー用） */
+const navLinks = [...anchorLinks, ...pageLinks];
+
+/**
+ * @description 現在のパスに基づいてアクティブかを判定する
+ * @param href - リンクの href 属性
+ * @returns アクティブかどうか
+ */
+function isActive(href: string): boolean {
+  if (href === "/blog/" || href.startsWith("/blog")) {
+    return currentPath.startsWith("/blog");
+  }
+  return false;
+}
+---
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="/" class="site-logo" aria-label="Anemonet トップへ">
+      <img src="/logo-icon.png" alt="" class="logo-icon" width="32" height="32" />
+      <span class="logo-name">Anemonet</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav class="header-nav" aria-label="メインナビゲーション">
+      {anchorLinks.map(link => (
+        <a
+          href={link.href}
+          class="header-nav-link"
+          aria-current={isActive(link.href) ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+      <span class="header-nav-separator" aria-hidden="true"></span>
+      {pageLinks.map(link => (
+        <a
+          href={link.href}
+          class="header-nav-link"
+          aria-current={isActive(link.href) ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="header-controls">
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="mobile-menu-btn"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <ThemeToggle />
+    </div>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <nav
+    id="mobile-menu"
+    class="mobile-menu"
+    aria-label="モバイルメニュー"
+    aria-hidden="true"
+  >
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class="mobile-menu-link"
+        aria-current={isActive(link.href) ? "page" : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    var menuBtn = document.getElementById("mobile-menu-btn");
+    var mobileMenu = document.getElementById("mobile-menu");
+
+    if (!menuBtn || !mobileMenu) return;
+
+    menuBtn.addEventListener("click", function () {
+      var isOpen = mobileMenu.getAttribute("aria-hidden") === "false";
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    // メニュー外クリックで閉じる
+    document.addEventListener("click", function (e) {
+      if (
+        mobileMenu.getAttribute("aria-hidden") === "false" &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuBtn &&
+        !menuBtn.contains(e.target)
+      ) {
+        closeMobileMenu();
+      }
+    });
+
+    // Escape キーで閉じる
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && mobileMenu.getAttribute("aria-hidden") === "false") {
+        closeMobileMenu();
+        menuBtn.focus();
+      }
+    });
+
+    function openMobileMenu() {
+      mobileMenu.setAttribute("aria-hidden", "false");
+      menuBtn.setAttribute("aria-expanded", "true");
+      menuBtn.setAttribute("aria-label", "メニューを閉じる");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.setAttribute("aria-hidden", "true");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "メニューを開く");
+      document.body.style.overflow = "";
+    }
+
+    // アンカーリンクのスムーズスクロール
+    var navLinks = document.querySelectorAll('a[href^="/#"], a[href^="#"]');
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var href = link.getAttribute("href");
+        if (!href) return;
+
+        // /#section 形式: トップページのアンカーへ
+        var anchorHref = href.startsWith("/#") ? href.slice(1) : href;
+        if (!anchorHref.startsWith("#")) return;
+
+        // 現在のページがトップページでなければナビゲーション任せ
+        if (href.startsWith("/#") && window.location.pathname !== "/") return;
+
+        var target = document.querySelector(anchorHref);
+        if (!target) return;
+        e.preventDefault();
+        closeMobileMenu();
+        var header = document.querySelector(".site-header");
+        var headerHeight = header ? header.offsetHeight : 0;
+        var top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+        window.scrollTo({ top: top, behavior: "smooth" });
+        target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+      });
+    });
+  })();
+</script>

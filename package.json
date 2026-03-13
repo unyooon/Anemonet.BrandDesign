@@ -29,9 +29,9 @@
     "build": "node scripts/build-tokens.js",
     "build:addons": "node scripts/generate-addons.js",
     "build:all": "npm run build && npm run build:addons",
-    "dev:docs": "vite --config docs/vite.config.ts",
-    "build:docs": "vite build --config docs/vite.config.ts",
-    "preview:docs": "vite preview --config docs/vite.config.ts"
+    "dev:site": "npm run dev --prefix site",
+    "build:site": "npm run build --prefix site",
+    "preview:site": "npm run preview --prefix site"
   },
   "devDependencies": {
     "style-dictionary": "^4.3.0",

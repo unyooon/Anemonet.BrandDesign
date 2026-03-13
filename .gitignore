@@ -3,6 +3,7 @@ node_modules/
 *.log
 .vite/
 docs/dist/
+site/dist/
 
 # Terraform
 infra/.terraform/

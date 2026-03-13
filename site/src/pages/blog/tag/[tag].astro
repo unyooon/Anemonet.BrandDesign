@@ -1,0 +1,141 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import BlogCard from "../../../components/BlogCard.astro";
+import "../../../styles/blog.css";
+
+/**
+ * @description タグ別記事一覧ページ
+ * - /blog/tag/{tag}/ のルートを全タグ分静的生成する
+ */
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+  /** 全タグを重複なく収集 */
+  const allTags = [...new Set(allPosts.flatMap(post => post.data.tags))];
+
+  return allTags.map(tag => {
+    /** そのタグを持つ記事を公開日降順でフィルタリング */
+    const tagPosts = allPosts
+      .filter(post => post.data.tags.includes(tag))
+      .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+    return {
+      params: { tag },
+      props: { tag, posts: tagPosts }
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`#${tag} の記事一覧 — Anemonet Blog`}
+  description={`Anemonet ブログの「${tag}」タグが付いた記事一覧です。`}
+  canonicalUrl={`https://anemonet.dev/blog/tag/${tag}/`}
+  ogType="website"
+>
+  <Header currentPath={`/blog/tag/${tag}/`} />
+
+  <main class="site-main" id="main-content">
+    <div class="blog-page">
+      <div class="container">
+        <header class="blog-page-header">
+          <nav class="tag-breadcrumb" aria-label="パンくずリスト">
+            <a href="/blog/" class="tag-breadcrumb-link">ブログ</a>
+            <span class="tag-breadcrumb-separator" aria-hidden="true">/</span>
+            <span aria-current="page">#{tag}</span>
+          </nav>
+
+          <h1 class="blog-page-title">
+            <span class="tag-label">#{tag}</span> の記事
+          </h1>
+          <p class="blog-page-lead">
+            {posts.length} 件の記事が見つかりました。
+          </p>
+        </header>
+
+        {posts.length > 0 ? (
+          <div class="blog-list">
+            {posts.map(post => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                publishedAt={post.data.publishedAt}
+                tags={post.data.tags}
+                slug={post.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <p class="posts-empty">このタグの記事はまだありません。</p>
+        )}
+
+        <div class="tag-page-actions">
+          <a href="/blog/" class="btn btn-outline btn-md">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            すべての記事を見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+.site-main {
+  padding: var(--anm-space-16) 0;
+  background: var(--anm-color-bg-page);
+  min-height: calc(100vh - 64px);
+}
+
+.tag-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--anm-space-2);
+  font-size: var(--anm-text-small-size);
+  color: var(--anm-color-text-sub);
+  margin-bottom: var(--anm-space-4);
+}
+
+.tag-breadcrumb-link {
+  color: var(--anm-color-action-primary-default);
+  text-decoration: none;
+}
+
+.tag-breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.tag-breadcrumb-separator {
+  color: var(--anm-color-border-default);
+}
+
+.tag-label {
+  color: var(--anm-color-accent-main);
+}
+
+.posts-empty {
+  color: var(--anm-color-text-sub);
+  font-size: var(--anm-text-base-size);
+  padding: var(--anm-space-8) 0;
+}
+
+.tag-page-actions {
+  margin-top: var(--anm-space-10);
+  display: flex;
+  align-items: center;
+  gap: var(--anm-space-3);
+}
+</style>

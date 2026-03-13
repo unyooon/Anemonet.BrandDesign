@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+
+/**
+ * @description 共通 HTML レイアウトコンポーネント
+ * - 全ページ共通の head 要素（メタタグ、OGP、GA4 等）を提供する
+ * - フラッシュ防止のインラインスクリプトでテーマを即時適用する
+ */
+
+type Props = {
+  /** ページタイトル */
+  title: string;
+  /** ページ説明文（meta description / OGP） */
+  description: string;
+  /** canonical URL（省略時はサイトの現在 URL） */
+  canonicalUrl?: string;
+  /** OGP の og:type（省略時: "website"） */
+  ogType?: string;
+  /** OGP 画像の絶対 URL */
+  ogImage?: string;
+  /** true の場合は noindex を付与する */
+  noindex?: boolean;
+  /** JSON-LD 構造化データオブジェクト（省略可） */
+  jsonLd?: object;
+};
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogType = "website",
+  ogImage,
+  noindex = false,
+  jsonLd
+} = Astro.props;
+
+const siteUrl = "https://anemonet.dev";
+const resolvedCanonical = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
+const resolvedOgImage = ogImage ?? undefined;
+---
+
+<!doctype html>
+<html lang="ja" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Analytics (GA4) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-13831Y5GYP"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-13831Y5GYP');
+    </script>
+
+    <!-- フラッシュ防止: テーマを即時適用 -->
+    <script is:inline>
+      (function() {
+        var saved = localStorage.getItem('anm-theme');
+        var theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Canonical -->
+    <link rel="canonical" href={resolvedCanonical} />
+
+    <!-- OGP -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Anemonet" />
+    <meta property="og:locale" content="ja_JP" />
+    {resolvedOgImage && (
+      <>
+        <meta property="og:image" content={resolvedOgImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </>
+    )}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {resolvedOgImage && <meta name="twitter:image" content={resolvedOgImage} />}
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- JSON-LD -->
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
