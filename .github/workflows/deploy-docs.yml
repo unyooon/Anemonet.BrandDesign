@@ -8,6 +8,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v5
 
@@ -33,6 +36,9 @@ jobs:
         run: npm run build
         working-directory: site
 
-      - run: npx firebase-tools deploy --only hosting --project ${{ vars.FIREBASE_PROJECT_ID }}
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/158133839000/locations/global/workloadIdentityPools/github-actions/providers/github
+          service_account: github-actions-deploy@anemonet-dev.iam.gserviceaccount.com
+
+      - run: npx firebase-tools deploy --only hosting --project anemonet-dev
