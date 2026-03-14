@@ -36,9 +36,13 @@ jobs:
         run: npm run build
         working-directory: site
 
-      - uses: google-github-actions/auth@v2
+      - id: auth
+        uses: google-github-actions/auth@v2
         with:
           workload_identity_provider: projects/158133839000/locations/global/workloadIdentityPools/github-actions/providers/github
           service_account: github-actions-deploy@anemonet-dev.iam.gserviceaccount.com
+          token_format: access_token
 
       - run: npx firebase-tools deploy --only hosting --project anemonet-dev
+        env:
+          FIREBASE_TOKEN: ${{ steps.auth.outputs.access_token }}
